@@ -1,0 +1,5 @@
+step,cells
+input,16291
+n_genes >= 500,16291
+pct_mito <= 20.0,14503
+both,14503

@@ -1,0 +1,78 @@
+# bioinfo-291 analysis parameters
+# Every stage reads this file. Do not hardcode these values in src/.
+
+seed: 0
+
+dataset:
+  accession: GSE120575
+  description: >-
+    CD45+ immune cells from 48 melanoma tumour biopsies taken at baseline (Pre)
+    or on treatment (Post) with checkpoint blockade. Smart-seq2, TPM.
+  ftp_base: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120575/suppl/
+  files:
+    expression: GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt.gz
+    cell_metadata: GSE120575_patient_ID_single_cells.txt.gz
+  expected_cells: 16291
+  expected_samples: 48
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  metadata: data/metadata
+  results: results
+  figures: figures
+  reports: reports
+
+ingest:
+  # rows of the gene x cell text matrix read per chunk; keeps peak RAM bounded
+  chunk_rows: 2000
+  # a gene is kept if detected (TPM > 0) in at least this many cells
+  min_cells_per_gene: 10
+
+qc:
+  min_genes_per_cell: 500
+  max_pct_mito: 20.0
+  # The GEO matrix is log2(TPM+1): library size is normalised away by
+  # construction, so there is no total-count filter to apply here.
+
+atlas:
+  n_top_genes: 2000
+  n_pcs: 30
+  harmony_key: patient
+  neighbors_k: 15
+  leiden_resolution: 1.0
+
+abundance:
+  # cell types with fewer than this many cells in a sample contribute a zero,
+  # samples with fewer than this many total cells are dropped from proportion tests
+  min_cells_per_sample: 20
+  transform: logit          # propeller-style variance-stabilising transform
+  alpha: 0.05
+
+markers:
+  method: wilcoxon
+  n_top: 25
+  min_log2fc: 0.5
+  max_padj: 0.05
+
+pseudobulk:
+  # a (sample, cell type) pseudobulk profile is kept only with this many cells
+  min_cells: 10
+  # a cell type is tested only if this many samples survive the above filter
+  min_samples_per_group: 3
+  max_padj: 0.1
+
+signature:
+  # signature discovery uses baseline biopsies only
+  timepoint: Pre
+  n_genes: 50
+  cv: leave_one_patient_out
+  n_bootstrap: 2000
+  # 200 shuffles resolve p to ~0.005, which is finer than 19 patients can
+  # support; the bootstrap CI, not the null, is the limiting uncertainty here.
+  n_permutations: 200
+
+contrasts:
+  treatment: {group: timepoint, test: Post, reference: Pre}
+  response_baseline: {group: response, test: Responder, reference: Non-responder, subset: {timepoint: Pre}}
+  response_ontreatment: {group: response, test: Responder, reference: Non-responder, subset: {timepoint: Post}}

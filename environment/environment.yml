@@ -1,0 +1,39 @@
+# Analysis environment for bioinfo-291.
+#
+#   conda env create -f environment/environment.yml
+#   conda activate icb-scrna
+#
+# One pin is load-bearing: harmonypy 0.0.9. Releases from 0.0.10 import torch at
+# module load; the integration itself needs no GPU and no deep-learning stack,
+# and the torch dependency fails to load on Windows sandboxes.
+#
+# scikit-learn is deliberately left unpinned. src/icb_scrna/signature.py uses
+# LogisticRegression's ridge default rather than passing penalty= explicitly,
+# which is both the pre-1.8 behaviour and the form that survives the 1.8
+# deprecation, so the code is correct on either side of that release.
+#
+# Realized versions from the run that produced results/ are in environment.lock.txt.
+name: icb-scrna
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - anndata
+  - scanpy
+  - leidenalg
+  - python-igraph
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - h5py
+  - pyyaml
+  - requests
+  - openpyxl
+  - pytest
+  - pip
+  - pip:
+      - harmonypy==0.0.9
