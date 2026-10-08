@@ -1,0 +1,49 @@
+# Conda environment specification for reproducible analysis.
+#
+# Create with: conda env create -f environment.yml
+# Activate with: conda activate <env-name>
+#
+# IMPORTANT: A .lock.txt file should accompany this .yml, recording the exact
+# versions that resolved during the successful run. The .yml specifies the
+# human-readable requirements; the .lock.txt enables exact replay.
+#
+# See environment_notes.md for guidance on pinning and working with versions.
+
+name: analysis-env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # Core data science
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - statsmodels
+  
+  # Analysis & visualization
+  - matplotlib
+  - seaborn
+  - jupyter
+  
+  # Data formats
+  - h5py
+  - openpyxl
+  
+  # Configuration & reproducibility
+  - pyyaml
+  - requests
+  
+  # Testing
+  - pytest
+  - pytest-cov
+  
+  # Development
+  - pip
+  - git
+
+  # Add domain-specific packages below (genomics, chemistry, etc.)
+  # Example: - scanpy=1.12  (but don't pin minor version unless load-bearing)

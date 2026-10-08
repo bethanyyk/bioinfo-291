@@ -1,0 +1,54 @@
+# Analysis environment for bioinfo-291 scRNA analysis.
+#
+# Install with: conda env create -f environment.yml
+# Activate with: conda activate icb-scrna
+#
+# See environment_notes.md for guidance on pinning and reproducibility.
+# The realized versions from the successful run are recorded in environment.lock.txt.
+
+name: icb-scrna
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # Core data science
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - statsmodels
+  
+  # Single-cell analysis
+  - scanpy
+  - leidenalg
+  - anndata
+  
+  # Visualization
+  - matplotlib
+  - seaborn
+  - jupyter
+  
+  # Data formats
+  - h5py
+  - openpyxl
+  
+  # Configuration & reproducibility
+  - pyyaml
+  - requests
+  
+  # Testing
+  - pytest
+  
+  # Development
+  - pip
+  - git
+
+  # Harmony integration (load-bearing pin: 0.0.9)
+  # Releases from 0.0.10 import torch at module load; torch's DLLs fail on Windows sandboxes.
+  # This integration needs no GPU or deep-learning stack; 0.0.9 works fine.
+  - pip
+  - pip:
+      - harmonypy==0.0.9

@@ -1,26 +1,38 @@
 #!/usr/bin/env python
 """End-to-end driver for the GSE120575 pre/post-ICB analysis.
 
-Each stage declares its output paths and is skipped when they all exist, so a
-rerun after an interruption resumes rather than restarts. ``--force`` ignores
-existing outputs; ``--stage`` runs one stage and its prerequisites' outputs are
-assumed present.
+Uses reproducible-skills patterns for stage orchestration:
+- Each stage declares its outputs and is skipped when they exist (unless --force)
+- Stages can be run individually (--stage) and assumed to have their prerequisites
+- Config is externalized to YAML; stages never read files directly
 
     python workflows/run_pipeline.py --config configs/analysis.yaml
     python workflows/run_pipeline.py --stage abundance --force
+
+See ../0-reproducible-skills/ for base modules (config, pipeline driver, testing).
 """
 
 from __future__ import annotations
 
 import argparse
-import hashlib
-import json
+import logging
 import sys
-import urllib.request
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+
+# Configure logging (reproducible-skills pattern)
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(levelname)s] %(message)s"
+)
+log = logging.getLogger(__name__)
+
+import hashlib
+import json
+import urllib.request
 
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -35,6 +47,22 @@ from icb_scrna import plots as PL  # noqa: E402
 from icb_scrna import preprocess as pp  # noqa: E402
 from icb_scrna import signature as sg  # noqa: E402
 from icb_scrna.config import Config, load_config  # noqa: E402
+
+
+@dataclass
+class Stage:
+    """Metadata and implementation for a pipeline stage.
+    
+    A stage is an idempotent analysis step that can be run in isolation.
+    - name: unique identifier  
+    - description: human-readable description
+    - func: function(cfg: Config) -> list[Path] of outputs produced
+    - outputs: list of relative paths (from cfg.root) that indicate completion
+    """
+    name: str
+    description: str
+    func: callable
+    outputs: list[str]
 
 CONTRASTS = {
     "treatment": ("timepoint", "Post", "Pre", None),
@@ -259,34 +287,111 @@ def _annotated(cfg: Config):
     return ad.read_h5ad(cfg.path("processed", "gse120575_annotated.h5ad"))
 
 
-STAGES = {
-    "download": (stage_download, ["data/raw/GSE120575_patient_ID_single_cells.txt.gz"]),
-    "ingest": (stage_ingest, ["data/processed/gse120575_raw.h5ad"]),
-    "atlas": (stage_atlas, ["data/processed/gse120575_annotated.h5ad"]),
-    "atlas_figure": (stage_atlas_figure, ["figures/fig1_atlas.png"]),
-    "abundance": (stage_abundance, ["results/differential_abundance.csv"]),
-    "markers": (stage_markers, ["results/markers_cell_type_top.csv"]),
-    "de": (stage_de, ["results/pseudobulk_de_significant.csv"]),
-    "signature": (stage_signature, ["results/signature_performance.csv"]),
-}
+# Pipeline stages in execution order
+STAGES = [
+    Stage(
+        "download",
+        "Download raw data from GEO",
+        stage_download,
+        ["data/raw/GSE120575_patient_ID_single_cells.txt.gz"],
+    ),
+    Stage(
+        "ingest",
+        "Parse expression matrix and cell metadata",
+        stage_ingest,
+        ["data/processed/gse120575_raw.h5ad"],
+    ),
+    Stage(
+        "atlas",
+        "QC, normalization, integration (Harmony), and clustering",
+        stage_atlas,
+        ["data/processed/gse120575_annotated.h5ad"],
+    ),
+    Stage(
+        "atlas_figure",
+        "UMAP figure of integrated atlas with cell types",
+        stage_atlas_figure,
+        ["figures/fig1_atlas.png"],
+    ),
+    Stage(
+        "abundance",
+        "Test for differential cell abundance across treatment/response",
+        stage_abundance,
+        ["results/differential_abundance.csv"],
+    ),
+    Stage(
+        "markers",
+        "Compute cell-type marker genes",
+        stage_markers,
+        ["results/markers_cell_type_top.csv"],
+    ),
+    Stage(
+        "de",
+        "Pseudobulk differential expression (contrast: on-treatment responders vs others)",
+        stage_de,
+        ["results/pseudobulk_de_significant.csv"],
+    ),
+    Stage(
+        "signature",
+        "Derive and validate baseline response signatures",
+        stage_signature,
+        ["results/signature_performance.csv"],
+    ),
+]
+
+# Index stages by name for CLI argument validation
+STAGE_MAP = {s.name: s for s in STAGES}
+STAGE_NAMES = list(STAGE_MAP.keys())
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run the end-to-end pipeline.
+    
+    Usage:
+        Run all stages (skipping those with outputs present):
+            python workflows/run_pipeline.py --config configs/analysis.yaml
+        
+        Run one stage (assume prerequisites are complete):
+            python workflows/run_pipeline.py --stage abundance
+        
+        Force re-run of all stages:
+            python workflows/run_pipeline.py --force
+    """
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--config", default="configs/analysis.yaml")
-    ap.add_argument("--stage", choices=list(STAGES), action="append")
-    ap.add_argument("--force", action="store_true")
+    ap.add_argument("--config", default="configs/analysis.yaml",
+                    help="Path to analysis config (YAML)")
+    ap.add_argument("--stage", choices=STAGE_NAMES, action="append",
+                    help="Run only this stage (can be repeated for multiple stages)")
+    ap.add_argument("--force", action="store_true",
+                    help="Force re-run all stages even if outputs exist")
     args = ap.parse_args(argv)
+    
     cfg = load_config(args.config)
-    for name in (args.stage or list(STAGES)):
-        fn, outputs = STAGES[name]
-        paths = [cfg.root / o for o in outputs]
-        if not args.force and all(p.exists() for p in paths):
-            print(f"[skip] {name} - outputs present")
+    log.info(f"Loaded config from {cfg.source}")
+    log.info(f"Project root: {cfg.root}")
+    
+    # Determine which stages to run
+    stages_to_run = [STAGE_MAP[name] for name in (args.stage or STAGE_NAMES)]
+    
+    # Execute pipeline
+    for stage in stages_to_run:
+        # Check if outputs exist
+        paths = [cfg.root / o for o in stage.outputs]
+        outputs_exist = all(p.exists() for p in paths)
+        
+        if outputs_exist and not args.force:
+            log.info(f"[SKIP] {stage.name}: outputs present")
             continue
-        print(f"[run ] {name}")
-        produced = fn(cfg)
-        print(f"[done] {name} -> {', '.join(str(p.relative_to(cfg.root)) for p in produced)}")
+        
+        log.info(f"[RUN]  {stage.name}: {stage.description}")
+        try:
+            produced = stage.func(cfg)
+            log.info(f"[OK]   {stage.name} → {', '.join(str(p.relative_to(cfg.root)) for p in produced)}")
+        except Exception as e:
+            log.error(f"[FAIL] {stage.name}: {e}")
+            raise
+    
+    log.info("Pipeline complete.")
     return 0
 
 
