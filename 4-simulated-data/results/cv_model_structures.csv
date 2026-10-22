@@ -1,0 +1,7 @@
+model,n_par,cv_deviance
+E: B + full site:kinetics,26,899.0
+D: B + site:koff(+²),22,919.8
+C: B + site:kon,18,921.2
+B: A + plate,14,951.3
+F: B without density,13,955.8
+A: site + kin(koff²) + dens,9,1060.8

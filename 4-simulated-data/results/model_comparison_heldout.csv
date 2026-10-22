@@ -1,0 +1,6 @@
+model,rmse,mae,r2,tweedie_dev,spearman,top20_hits
+SLR: agonism ~ log10_KD (OLS),18.088,13.332,0.129,1075.161,0.522,5
+OLS: site+kin+interactions,8.146,6.013,0.823,53533.708,0.797,18
+"Tweedie GLM, no plate",6.773,4.826,0.878,356.686,0.856,18
+Tweedie GLM + plate,7.481,5.144,0.851,331.025,0.877,18
+Tweedie GLM + plate + site:kin,7.809,5.33,0.838,323.838,0.882,19
