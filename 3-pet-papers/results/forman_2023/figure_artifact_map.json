@@ -1,0 +1,17 @@
+{
+ "F1_design_map.png": "{{artifact:art_80ca1406-8ba6-4188-ae48-11fb86352188}}",
+ "F2_raw_behind_claim.png": "{{artifact:art_6b79a4ca-b2eb-4518-89a6-3d345fd7d27c}}",
+ "F3_assumption_shape.png": "{{artifact:art_3436b3c3-09e1-4126-9003-50bde438ea94}}",
+ "F4_claim_ledger.png": "{{artifact:art_0cef1b0b-5e22-4539-a312-dc04eae63950}}",
+ "F5_null_distribution.png": "{{artifact:art_0b051274-94b9-4c7a-8f1e-11875a23f6e1}}",
+ "F6_multiplicity.png": "{{artifact:art_07dc4d3c-81be-48b5-8e7e-8bc352ed56a2}}",
+ "panel_C1_untrained.png": "{{artifact:art_bdc97d9e-83ef-46de-8598-7d4380f8e3f9}}",
+ "panel_C3_initiation.png": "{{artifact:art_e2671478-a26b-4d27-b23b-138307798c71}}",
+ "panel_C7_termination.png": "{{artifact:art_86b20ddd-e6e6-45a5-9565-ff4ad2460b68}}",
+ "panel_C11_sex_ratio.png": "{{artifact:art_0bb264e5-0aaf-454e-87f6-531229a0a801}}",
+ "panel_C13_owner_initiates.png": "{{artifact:art_9ef3c08e-41a8-4d71-b9de-ee5246f5d206}}",
+ "panel_C20_sex_retrievals.png": "{{artifact:art_31a9f047-2dff-4250-86d2-49d42b1f16c2}}",
+ "panel_C22_not_assessable.png": "{{artifact:art_29f4f64b-2234-49ce-9361-26a27ef321ef}}",
+ "panel_C23_not_assessable.png": "{{artifact:art_31178810-acab-4c34-9a1b-af87e8083cc5}}",
+ "panel_C24_not_assessable.png": "{{artifact:art_57a6bd1f-eaa1-409f-845a-bd7a6f1ccd32}}"
+}

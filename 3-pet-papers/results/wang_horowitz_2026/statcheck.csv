@@ -1,0 +1,40 @@
+claim_id,test,statistic_name,statistic_reported,statistic_recomputed,statistic_match,p_relation,p_reported,p_recomputed,p_consistent,decision_error,n_used,exact
+W1,"Wilcoxon signed-rank (R wilcox.test, paired)",V,7108.0,7108.0,True,<,0.001,9.94626333747595e-18,True,False,122,False
+W2,"Wilcoxon signed-rank (R wilcox.test, paired)",V,2704.0,2704.0,True,=,0.008,0.0074711399423384,False,False,122,False
+W3,"Wilcoxon signed-rank (R wilcox.test, paired)",V,2061.5,2061.0,False,<,0.001,9.9743052257652e-05,True,False,122,False
+W4,"Wilcoxon signed-rank (R wilcox.test, paired)",V,2977.0,2977.0,True,=,0.087,0.0874857629759272,True,False,122,False
+W5,"Wilcoxon signed-rank (R wilcox.test, paired)",V,226.0,226.0,True,=,0.013,0.0125120844040794,True,False,40,True
+W6,"Wilcoxon signed-rank (R wilcox.test, paired)",V,133.0,133.0,True,<,0.001,0.0005881101875181,True,False,40,False
+W7,"Wilcoxon signed-rank (R wilcox.test, paired)",V,26.0,26.0,True,=,0.004,0.0039176940917968,True,False,19,True
+W8,"Wilcoxon signed-rank (R wilcox.test, paired)",V,94.0,94.0,True,=,0.47,0.473334312438965,True,False,21,True
+W9,"Wilcoxon signed-rank (R wilcox.test, paired)",V,25.0,25.0,True,=,0.003,0.0033416748046875,True,False,19,True
+W10,"Wilcoxon signed-rank (R wilcox.test, paired)",V,44.0,44.0,True,=,0.042,0.0421303587106273,True,False,21,False
+W11,"Wilcoxon signed-rank (R wilcox.test, paired)",V,412.0,412.0,True,=,0.82,0.817506585780393,True,False,41,True
+W12,"Wilcoxon signed-rank (R wilcox.test, paired)",V,301.0,301.0,True,=,0.095,0.0948576546406912,True,False,41,True
+W13,"Wilcoxon signed-rank (R wilcox.test, paired)",V,23.0,23.0,True,=,0.001,0.0012092590332031,True,False,20,True
+W14,"Wilcoxon signed-rank (R wilcox.test, paired)",V,127.0,127.0,True,<,0.001,0.0007266325842629,True,False,41,False
+W15,"Wilcoxon signed-rank (R wilcox.test, paired)",V,29.0,29.0,True,=,0.003,0.003152847290039,True,False,20,True
+W16,"Wilcoxon signed-rank (R wilcox.test, paired)",V,34.0,34.0,True,=,0.045,0.0467895211545023,False,False,21,False
+K1,kruskal.test on 12 sample-point means per condition,H,20.96,20.9639661233621,True,<,0.001,2.80370681259256e-05,True,False,36,False
+K2,kruskal.test on 12 sample-point means per condition,H,23.98,23.9797154102331,True,<,0.001,6.20684585365243e-06,True,False,36,False
+K3,kruskal.test on 12 sample-point means per condition,H,23.11,23.1052591229684,True,<,0.001,9.61073782163666e-06,True,False,36,False
+K4,aov on 12 sample-point means per condition,F,1.035,1.03484265376394,True,=,0.37,0.366525481032987,True,False,36,False
+K5,kruskal.test on 12 sample-point means per condition,H,8.28,8.28162450066579,True,=,0.016,0.0159099234142102,True,False,36,False
+K6,kruskal.test on 12 sample-point means per condition,H,16.89,16.888166047088,True,<,0.001,0.0002151698108774,True,False,36,False
+K7,kruskal.test on 12 sample-point means per condition,H,5.08,5.07864238410596,True,=,0.079,0.0789199531037564,True,False,36,False
+K8,kruskal.test on 12 sample-point means per condition,H,15.6326,15.6325772605035,True,<,0.001,0.000403115018814,True,False,36,False
+D1,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-3.69763427085788,,<,0.001,0.0001088090585697,True,False,15,False
+D2,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-4.18732097159311,,<,0.001,1.41133256401343e-05,True,False,15,False
+D3,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,4.53269650119047,,<,0.001,2.91177295787285e-06,True,False,15,False
+D4,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,3.8712729774116,,<,0.001,5.41342316253857e-05,True,False,15,False
+D5,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-4.70863132820716,,<,0.001,1.24692833053157e-06,True,False,15,False
+D6,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-3.19129690851462,,<,0.001,0.0007081782370066,True,False,18,False
+D7,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,2.83782704140171,,=,0.002,0.0022710894061698,True,False,15,False
+D8,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,4.03405768890612,,<,0.001,2.74109247181419e-05,True,False,15,False
+D9,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,2.69593123600067,,=,0.004,0.003509607762523,True,False,15,False
+D10,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-3.87900982922358,,<,0.001,5.24412586860425e-05,True,False,15,False
+D11,"Dunn post-hoc (dunn.test default: halved, unadjusted)",z,,-2.60237368289683,,=,0.005,0.0046290456786665,True,False,15,False
+G1,Gaussian GLM coefficient Condition_MFS:Sex_MFM (72 sex x condition x point means),t,-2.796,-2.79617291878024,True,=,0.007,0.006766841000831,True,False,72,False
+G2,Gaussian GLM coefficient Condition_MFS:Sex_MFM (72 sex x condition x point means),t,5.201,5.20078103279571,True,<,0.001,2.09888901726085e-06,True,False,72,False
+G3,Gaussian GLM coefficient Condition_MFS:Sex_MFM (72 sex x condition x point means),t,-3.044,-3.04352532996114,True,=,0.003,0.0033553966411354,True,False,72,False
+G4,Gaussian GLM coefficient Condition_MFJ:Sex_MFM (72 sex x condition x point means),t,2.78,2.77989423436346,True,=,0.007,0.0070773493267399,True,False,72,False

@@ -1,0 +1,729 @@
+Full Length Article
+Pupil size changes reveal that dogs are sensitive to the social conventions 
+behind human gestures
+Lucrezia Lonardo a,*
+, Christoph J. Volter ¨ a,b
+, Ludwig Huber a
+a Cognition and Applied Ethology, Messerli Research Institute, University of Veterinary Medicine Vienna, Medical University of Vienna and University of Vienna, Vienna, 
+Austria
+b Department of Comparative Cultural Psychology, Max Planck Institute for Evolutionary Anthropology, 04103 Leipzig, Germany
+ARTICLE INFO
+Keywords:
+Eye tracking
+Dog cognition
+Social cognition
+Animal cognition
+Social conventions
+Conventional gestures
+ABSTRACT
+While many animals display behaviours resembling social conventions when interacting with conspecifics, it is 
+unknown whether animals who live in close contact with humans develop sensitivity to our social conventions. 
+With an eye-tracking study (N = 39), we asked whether dogs' (Canis familiaris) eye movements and pupil sizes 
+would show a reaction when observing a violation in the customary response to human conventional commu￾nicative gestures (“come here” and “go away”). In the video stimuli, a human actress either approached or 
+walked away from a second human actress. Both these actions (approaching or walking away) could be expected 
+or surprising (within-subject), depending on whether they happened in response to the “come here” or the “go 
+away” gesture of the second actress. While dogs' looking times and number of gaze transitions between the two 
+actresses did not differ significantly between congruent and incongruent responses, their pupil size changes did: 
+dogs' pupils dilated more when watching the incongruent responses (approaching after the “go away” gesture 
+and walking away after the “come here” gesture) compared to the congruent ones. We discuss the possibility that 
+pet dogs, during their ontogeny, implicitly form expectations about the usual response to some conventional 
+human gestures. These expectations are not self-centred, as they were evidenced when dogs observed a third￾party interaction between two humans, and they are context-specific, as the same responses elicited surprise 
+following one gesture but not the other. We also consider alternative explanations and limitations of our findings.
+Social conventions, descriptive regularities about the usual behav￾iour in specific circumstances, are pervasive in human societies (Heyes, 
+2024; Schmidt & Rakoczy, 2023). In particular, some intransitive ges￾tures in some cultures are well understood as communicative conven￾tions. For example, if we observe someone raise a hand and wave at 
+another person, we immediately and effortlessly infer the intention to 
+“greet”. Human expectations about the conventions in third-party social 
+interactions begin to develop during the second half of the first year of 
+life (Beier & Spelke, 2012). For example, 7- to 12-month olds have ex￾pectations about how members of the same social group should act 
+(Powell & Spelke, 2013, 2018) and 11-month olds' pupil size changes 
+show surprise when conformity does not lead to social inclusion and 
+when non-conformity leads to social inclusion (Koster ¨ & Hepach, 2024). 
+By their first year, human infants already expect language and artifacts 
+to be used in a conventional way (Schmidt & Rakoczy, 2023). However, 
+we still do not know the extent to which the ability to detect violations of 
+social conventions, from the observation of non-verbal third-party 
+interactions, is shared with other animals.
+Dogs (Canis familiaris) are thought to follow some forms of social 
+conventions during social play (Bekoff, 2015) and constitute a promising 
+model for the study of the development and evolution of social 
+convention understanding. Specifically, they have been proposed as a 
+model for the study of socio-cognitive processes that might be func￾tionally analogous to those of humans as a result of convergent evolu￾tion, due to our shared social environment (Hare & Tomasello, 2005; 
+Kaminski & Marshall-Pescini, 2014; Top´
+al, Miklosi, ´ et al., 2009). For 
+example, dogs are excellent readers of human non-verbal communica￾tion, to which they often respond appropriately (for reviews, see Huber, 
+2016; Huber & Lonardo, 2023; Kaminski & Nitzschner, 2013). This in￾cludes an understanding of pointing gestures both as referential (Volter ¨
+et al., 2025) and as indicating a location (Lakatos et al., 2012; Tauzin 
+et al., 2015). However, dogs do not follow all types of pointing gestures 
+equally well: they have difficulty with gestures which are less visually 
+clear or less commonly encountered, such as elbow cross-pointing, 
+* Corresponding author at: University of Veterinary Medicine of Vienna, Veterinarplatz ¨ 1, 1210 Vienna, Austria.
+E-mail address: lucrezia.lonardo@vetmeduni.ac.at (L. Lonardo). 
+Contents lists available at ScienceDirect
+Cognition
+journal homepage: www.elsevier.com/locate/cognit
+https://doi.org/10.1016/j.cognition.2026.106586
+Received 9 December 2025; Received in revised form 7 May 2026; Accepted 9 May 2026 
+Cognition 274 (2026) 106586
+Available online 15 May 2026
+0010-0277/© 2026 The Author(s). Published by Elsevier B.V. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+
+forward cross-pointing and knee-pointing, especially when the human 
+body parts conveying the pointing signal do not protrude from the 
+pointer's body (Soproni et al., 2001). In contrast, they succeed with more 
+direct or familiar gestures, such as arm or leg pointing (Lakatos et al., 
+2009). Concerning the precise strategy used to follow a pointing gesture 
+to its possible referent, dogs are unlikely to follow the precise linear 
+trajectory along pointing arms. Instead, they seem to follow the side of 
+the human gesturing because, when multiple possible referents are on 
+the same side of the pointer, they rely on heuristics such as picking the 
+referent closer to the pointer (Lakatos et al., 2012). Further, their point 
+following to locate hidden food might not be as robust as previously 
+thought; when showing a contralateral momentary (2 s) pointing 
+gesture, dogs (N = 455) performed only minimally above chance level, 
+irrespective of getting ostensive cues before (mean = 53% correct) or not 
+(mean = 52% correct) in a two-choice task (ManyDogs Project, et al., 
+2023). While the familiarity of the pointer does not affect performance, 
+sometimes dogs struggle to ignore misleading human communicative 
+gestures, especially if these are preceded by ostensive cues (Barnard 
+et al., 2019; Chijiiwa et al., 2021; Kundey et al., 2010; Marshall-Pescini 
+et al., 2012; Petter et al., 2009; Szetei et al., 2003; Topal, ´ Gergely, et al., 
+2009). In addition to pointing, during their ontogeny in human house￾holds, pet dogs, like children, are extensively exposed to human social 
+conventions. Sometimes they might even be explicitly trained to respect 
+some conventions (e.g., approach a human who taps with her hand a 
+certain surface). Specifically, dogs are routinely trained to associate 
+human hand gestures (commands) with actions. Studies with rescue 
+dogs have shown the primary role of gestural over verbal communica￾tion when humans are asking dogs to obey commands (D'Aniello et al., 
+2016). Moreover, once learned the gestural signals (e.g., for “sit”, 
+“down”, “stay” and “come”), rescue dogs respond to them irrespective of 
+whether the gesture is emitted by their owner or a stranger (Scandurra 
+et al., 2017). However, in previous behavioural studies, unlike human 
+children, dogs did not seem to follow a human experimenter's deictic 
+gesture when this was directed to another human (Kaminski et al., 2012) 
+nor did they evaluate a human experimenter based on her interaction 
+with another dog (Nitzschner et al., 2012). Hence, it is not known 
+whether dogs have expectations about the usual responses to human 
+non-verbal conventional gestures, when they observe interacting 
+humans.
+To investigate dogs' expectations about third-party non-verbal 
+communicative gestures, we showed them video recordings of social 
+interactions between two human actresses, one of which (the signaller) 
+communicated to the other (the receiver) to approach her or to move 
+away from her (Fig. 1). For the “come here” signal the signaller showed a 
+series of conventional gestures associated with the intention to invite the 
+receiver to approach (Guidetti & Nicoladis, 2008). These gestures are 
+Fig. 1. The sequence of events shown in the experiment: (a) Beginning of all sequences; (b) “come” gesture and (c) “go away” gestures; (d)-(e) after either of these 
+gestures, dogs were presented with congruent or incongruent reactions (within-subject design).
+L. Lonardo et al. Cognition 274 (2026) 106586
+2
+
+even shared with nonhuman apes (Genty & Zuberbühler, 2015; Hobaiter 
+& Byrne, 2014). Specifically, the signaller nodded her head with a 
+positive facial expression, slightly crouched down bending her chest 
+forward, patted her hands on her thighs and beckoned, to invite the 
+other person to approach her. For the “go away” signal, the signaller 
+extended her arm and index finger away from, and perpendicular to, her 
+body, maintaining an upright posture and a serious facial expression, to 
+communicate to the other person to move away from her. Deictic ges￾tures are routinely used by humans to attract attention to a location 
+distant from the signaller and they develop long before language does 
+(Cartmill et al., 2011).
+In a 2 × 2 within-subject design, we varied the sender's signal (“come 
+here” or “go away”) and whether the recipient's behavioural response 
+was congruent or incongruent with the sender's signal. Following the 
+“come here” signal, the congruent response was approaching the 
+signaller, while the incongruent response was walking away from the 
+signaller. In the “go away” condition, the congruent response was 
+walking away, while the incongruent response was approaching. We 
+hypothesised that, due to the experience they gain during their ontogeny 
+in a human household (including their training), dogs acquired expec￾tations about the customary behaviour the receiver will adopt in 
+response to the two communicative cues. Hence, we predicted that 
+seeing the congruent response in both conditions should result in shorter 
+looking times to the actresses as compared to seeing the incongruent 
+response, which should instead violate dogs' expectations and result in 
+longer looking times when dogs witness the incongruent reactions. 
+Importantly, because the same behaviour (approaching or walking 
+away) is in one condition the customary (expected) reaction and in the 
+other condition the incongruent (surprising) reaction, this design allows 
+to test whether the observers' expectations are context-relative, a 
+signature of human understanding of conventions (Rakoczy & Schmidt, 
+2013). Assuming that human communicative gestures can be considered 
+social conventions (Lewis, 1969; Tomasello, 2007), we analysed the 
+participants' pupil sizes as a measure of an orienting response and 
+arousal elicited by a violation of a social convention. Our prediction was 
+that their pupils would dilate more after observing the receiving actress's 
+gesture-incongruent reaction than after observing a gesture-congruent 
+reaction.
+1. Methods
+This experiment was discussed and approved by the ethics commit￾tee of the University of Veterinary Medicine of Vienna (ETK-195/12/ 
+2022; ETK-53/03/2023). Data were collected using an Eyelink 1000 
+eye-tracker (SR Research, Canada; sampling rate: 1000 Hz, monocular 
+tracking of the right eye). Before taking part in the experiments, dogs 
+underwent training (Karl et al., 2020) to lay their head on a chinrest 
+(height adjusted depending on the dog's size), 70 cm away from the 
+screen. Videos were presented on a 24-in. LCD monitor with resolution 
+1024 × 768 px and refresh rate 100 Hz, to accommodate dogs' flicker￾fusion threshold (Coile et al., 1989). The criterion for successful 
+training completion, and start of the tests, was that dogs performed a 
+validation of a calibration with less than 1◦ of visual angle deviation and 
+were able to maintain their head on the chinrest (without leaving when 
+the trainer left their field of view) for up to one minute.
+On testing days, each session began with a five-point calibration of 
+each dog's gaze positions on the screen. We used animations (inside 
+squares with a side length of 32 or 64 px) to attract the dogs' attention to 
+each calibration point. During tests, the dog's trainer was never visible to 
+the dogs. The sample size was determined by the number of chinrest￾and calibration-trained dogs available at the time of data collection. The 
+data and code for statistical analyses of this experiment are available at: 
+https://doi.org/10.5281/zenodo.17523757 (Lonardo et al., 2026).
+1.1. Stimuli
+The familiarisation video showed two actresses throwing a Frisbee 
+back and forth between each other for ten times (total duration of the 
+video: 10 s), a scene that has been found to capture and hold dogs' 
+attention (Volter ¨ et al., 2020). The agents were seen from their side and 
+were facing each other, standing (Fig. 1a). This sequence was followed 
+by an attention getter and only when the dogs fixated on it for 200 ms, 
+was one test video presented. We decided to present the same famil￾iarisation video before each test video. The familiarisation introduced 
+the scene and interacting actresses that would have also appeared in the 
+test, but there was no obvious communicative signal yet. We decided on 
+this design because we wanted to test the expectations the dogs bring to 
+the lab due to their previous life experience with humans, rather than 
+building expectations during the experiment with habituation trials 
+(Sirois, 2022).
+In test videos, the same two actresses and set-up as in the familiar￾isation were shown (Fig. 1a). The agent on the left side of the screen 
+either gestured for the other agent to approach, for example by patting 
+her hands on her thighs and beckoning (Fig. 1b) or to move away, by 
+momentarily pointing in the other agent's direction (Fig. 1c). The non￾verbal communication took approx. 3 s and was followed by the reac￾tion of the agent on the right side of the screen, which could be either 
+congruent with the communicated gesture (approaching when invited to 
+do so or moving away when invited to do so) or incongruent with it 
+(approaching when invited to move away or moving away when invited 
+to approach). The reaction of the agent on the right side of the screen 
+took approx. 3 s (Fig. 1d-e). Hence, we had two congruent conditions 
+(come-approach: CC, go away-go away: GG) and two incongruent con￾ditions (come-go away: CG, go away-approach, GC). The videos were 
+edited so as to show exactly the same footage of the communicative cues 
+between the two conditions that shared the same communicative cues 
+(same left half of the video) and exactly the same footage of the reaction 
+(same right half of the video) between the two conditions that shared the 
+same reaction. This was crucial to ensure that brightness was identical 
+between these conditions and that the same reaction video was supposed 
+to be surprising in one case but not in the other.
+1.2. Subjects
+We tested 39 dogs (18 females) of different breeds and mixes, mostly 
+mesocephalic (Table S1 reports more demographic and counter￾balancing information). Their average age was 59.3 months. Three 
+sessions, from three different dogs, were repeated due to the dogs 
+leaving the chinrest before the reacting agent started to move. Two dogs 
+became unavailable before the end of the data collection (one dog had 3 
+missing sessions – CC, CG, GC; the other dog had 1 missing session - GC). 
+Nine further dogs had trials in which their gaze was detected in less than 
+70% of the relevant interest period (see below). To ensure a within￾subject comparison, we only retained dogs with a full dataset (all four 
+valid trials, one per condition) in the pupil size analysis (N = 28).
+1.3. Design
+Dogs were tested on one test trial for each of the four conditions, 
+since we were interested in comparing the looking times between the 
+two incongruent and the two congruent trials. On each of four sessions a 
+dog would see the familiarisation video (10 s, including 1 s at the 
+beginning where the video is frozen) and one of the test videos (19 s, 
+including 2 s at the beginning and 10 s at the end where the video is 
+frozen), separated by an attention getter. Consecutive sessions were 
+separated by at least one week.
+We counterbalanced across dogs whether the first presented condi￾tion shows a congruent or an incongruent action. We pseudo￾randomised the order of presentation of the 4 conditions with the 
+constraint that the 4 conditions are equally likely to be presented first 
+L. Lonardo et al. Cognition 274 (2026) 106586
+3
+
+and the two conditions alternated from trial to trial (i.e., CICI or ICIC). 
+We chose this option, instead of a blocked order of conditions, because it 
+might minimise the risk that dogs build expectations about the second 
+agent (e.g., “she always obeys/disobeys”). The design was balanced 
+across dogs with regards to age and sex.
+1.4. Analyses
+Data were extracted using in DataViewer (version 5.1.1). All analyses 
+were performed in R (R Core Team, 2025; version 4.2.2). The analyses of 
+dwell times and gaze transitions between the agents' AoIs focused on an 
+interest period (IP) spanning the last 13,200 ms of the test videos, from 
+the moment the agent on the right started reacting (approaching or 
+walking away).
+1.4.1. Dwell times
+We analysed the proportion of time the dogs spent making fixations 
+(EyeLink parsing algorithm) in the agents' AoIs (relative to the time they 
+spent looking at the screen during the whole IP), using GLMMs with beta 
+error structure. We included as sole test predictor the interaction be￾tween trial type (congruent vs incongruent) or condition (CC, CG, GC, 
+GG), in two separate models, and agent type (communicating vs react￾ing) as well as their fixed effects.
+Both models included the fixed effect of trial number (z-transformed) 
+as control predictor and the random slope of the test predictor (manually 
+dummy coded and centered) and trial number (z-transformed) within 
+the random intercept of subject ID. We scaled the dependent variables to 
+ensure they did not contain the exact values of 0 and 1 (Smithson & 
+Verkuilen, 2006).
+1.4.2. Transitions between agents' AoIs
+To analyse the effect of trial type on the number of gaze transitions 
+dogs exhibited between the two agents' AoIs, we used a Generalized 
+LinearMixed Model (GLMM; (Baayen, 2008) with Poisson error struc￾ture and loglink function (McCullagh & Nelder, 1989). We included as 
+sole test predictor trial type (congruent vs incongruent) and trial number 
+(z-transformed) as control predictor (both with fixed effect). To account 
+for repeated observations from the same subjects, we included the 
+random intercept of subject ID and the random slope of trial number (z￾transformed) and trial type (manually dummy coded and centered) to 
+allow for inter-individual variation in the effect of these predictors on 
+the number of transitions. Moreover, we included in the model an offset 
+term (McCullagh & Nelder, 1989) to control for the duration of looking 
+time (log transformed, base e) during each trial, since more transitions 
+between AoIs are possible when dogs look longer to a trial.
+1.4.3. Pupil size
+We considered as baseline period the 1000 ms of test videos between 
+the end of the signalling actress's gesture and the beginning of the 
+movement of the reacting actress (between seconds 5 and 6 of the 
+videos). Four trials were excluded from these analyses because the dogs' 
+pupil was detected for less than 70% of the whole IP (which lasted 
+13,900 ms, from the beginning of the baseline until the end of the video). 
+Eight additional trials were excluded because, even though the eye was 
+tracked correctly, the dogs' gaze was detected on-screen for less than 
+70% of the whole IP, suggesting that dogs were keeping their position on 
+the chinrest but probably not paying attention to the stimuli in those 
+trials. Even when including these 12 trials, dogs' eyes were detected for 
+95% of the time, averaging across dogs and trials, and their gaze was 
+detected as on-screen for 92% of the time. To ensure a within-subject 
+comparison, we only retained dogs with four valid test trials, one per 
+condition (N = 28). Pupil size was analysed during a 4-s IP immediately 
+following the beginning of the reaction (approach or walk away) of the 
+actress who had witnessed the communicative gesture (from s 6 to s 10). 
+We chose the 70% valid data cut-off and the 4-s measuring IP for con￾sistency with our previous eye-tracking studies with dogs (e.g., Lonardo 
+et al., 2024).
+The raw pupil size data were pre-processed following standard 
+guidelines in the field (Kret & Sjak-Shie, 2019; Mathot ˆ et al., 2018). 
+Specifically, pupil and gaze samples from the 100 ms preceding and 
+following each blink were removed to decrease the likelihood of artifacts 
+in the signal. We subsequently filled the resulting gaps of up to 500 ms 
+using a linear interpolation. Next, we calculated the median speed of 
+pupil diameter changes for each trial. We excluded samples associated to 
+speed dilation outliers, defined as speed values exceeding eight times the 
+median absolute deviation (MAD; Leys et al., 2013) and repeated the 
+500-ms linear interpolation. We then subtracted the median pupil size 
+during the baseline period from the interpolated data for each dog and 
+trial. Finally, we downsampled the pupillometry and gaze coordinates 
+data to 10 Hz, by retaining the median value for each time bin, to reduce 
+autocorrelation in the signal, potentially deriving from the relatively 
+slow pupil dilation response compared to the high original (1000 Hz) 
+sampling rate. Finally, we repeated the MAD-based artefact correction 
+and interpolation.
+To the pre-processed and down-sampled data, we fitted a generalized 
+additive mixed model (GAMM) with Gaussian error structure, using the 
+bam function of the R package mgcv (version 1.8.41; Wood, 2011), with 
+the smoothing parameter selection method set to “ML” (van Rij et al., 
+2019). We included a linear term for trial type (congruent or incon￾gruent reaction), our test predictor, and one for session number (1 to 4), 
+a control predictor. We included a smooth term for time and for the 
+different levels of trial type over time (with the maximum number of 
+basis functions set to 20). This allows us to model the different effects of 
+time depending on the level of trial type, since we expected the effect of 
+time on pupil size to be non-linear but not necessarily identical between 
+the levels of trial type. We additionally included a smooth term for the 
+interaction between the X- and Y-gaze coordinates, as the gaze position 
+on the screen might influence pupil size (Mathot ˆ et al., 2018). Finally, 
+we included random factor smooths term for subject and for each 
+recording over time. To evaluate the significance of trial type, we 
+visually inspected the estimated differences between congruent and 
+incongruent trials using the function plot_diff of package itsadug. We 
+assessed autocorrelation in the GAMMs by visually inspecting the cor￾relations between the residuals and the lagged residuals (function acf of 
+the package stats; R Core Team, 2025). We checked the normality and 
+homogeneity of the distribution of the residuals by inspecting a QQ-plot 
+and a plot of residuals against fitted values (function gam.check, pack￾age mgcv). These checks confirmed that the autocorrelation was not 
+excessive and that the assumptions of the models were met.
+2. Results
+2.1. Dwell times
+Dogs looked at the agents on average for 4401 (SD ± 3668) ms (CC) 
+and 3967 (SD ± 3296) ms (GG) in the congruent conditions and for 3939 
+(SD ± 3549) ms (CG) and 4390 (SD ± 3464) ms (GC) in the incongruent 
+ones. A beta-distributed GLMM fitted on the proportion dwell time 
+revealed no significant interaction between trial type and agent type (χ2 
+= 0.05, df = 1, p = .818). A reduced model without the interaction term, 
+provided no evidence for a significant difference in dwell times between 
+the congruent or incongruent trial type (χ2 = 0.12, df = 1, p = .731; 
+Table S2 and Fig. 2a). Dogs looked significantly longer at the reacting 
+than the communicating agent (average reacting agent: 5105 ± 1924 
+ms, average communicating agent: 3218 ± 2065 ms; fixed effect of 
+agent type: χ2 = 13.85, df = 1, p < .001; Table S2), consistently with the 
+fact that the reacting agent was the only one moving during the IP 
+(Fig. 3).
+A second beta GLMM with condition (CC, CG, GC, GG) instead of trial 
+type (congruent, incongruent) as test predictor confirmed that dogs' 
+proportion of dwell time to the agents did not significantly depend on 
+condition either nor on the interaction between condition and agent 
+L. Lonardo et al. Cognition 274 (2026) 106586
+4
+
+type (comparison full-reduced model, lacking the fixed effect of condi￾tion and its interaction with agent type: χ2 = 10.32, df = 6, p = .112).
+2.2. Transitions between agents' AoIs
+On average dogs exhibited 2.22 (SD ± 1.98; range 0–8) transitions 
+between the two agents' AoIs per trial. Gaze transitions between the two 
+agents did not differ significantly depending on the trial type (χ2 < 0.01, 
+df = 1, p = .951; Table S3 and Fig. 2b). With increasing session number, 
+dogs tended to exhibit less gaze transitions between the two agents (χ2 
+= 2.95, df = 1, p = .086).
+Fig. 2. Boxplots showing dogs' dwell times to the agents (A) and their number of gaze transitions between the two agents' AoI (B), both as a function of trial type. No 
+statistically significant differences were found between congruent and incongruent trials in either dependent variable. Individual points show average values across 
+trials per subject (N = 39) and trial type. The grey lines connect observations belonging to the same subject.
+Fig. 3. Time course of the dogs' horizontal gaze coordinates relative to the depicted agents across the four conditions (panel names indicate first the communicating 
+agent's gesture and then the recipient's reaction). The grey lines show the individual on-screen gaze coordinates (dogs with valid trials in all four test trials; N = 28). 
+Blue line and the shaded area around it show the dogs mean horizontal gaze coordinates and the standard error of the mean; the black line shows the dogs median 
+horizontal gaze coordinates. The location of the communicating agent (communicator) is shown in orange; the reacting agent (recipient) is shown in brown. The 
+areas of the agents were extracted from the video using the Segment Anything Model 2 (Ravi et al., 2024). (For interpretation of the references to colour in this figure 
+legend, the reader is referred to the web version of this article.)
+L. Lonardo et al. Cognition 274 (2026) 106586
+5
+
+2.3. Pupil size
+Dogs' pupil size was significantly larger when dogs witnessed the 
+incongruent than the congruent reactions to the communicative gestures 
+(linear effect of trial type: t = 2.04, p = .041). In particular, this dif￾ference between incongruent and congruent trials was significant be￾tween ms 7697 and ms 9111 (red line in Fig. 4B), i.e., approx. 1.8 s after 
+the reacting actress started to move. A Wilcoxon signed-rank test of the 
+dogs' mean pupil size in the same interest period confirmed that 
+incongruent trials elicited larger pupil sizes than congruent trials (T+ =
+313, N = 28, p = .011). Session number did not affect pupil size linearly 
+(t = − 0.01, p = .990). The non-parametric effect of time (F = 11.87, p <
+.001), gaze coordinates on the screen (F = 31.14, p < .001), subject over 
+time (F = 0.09, p < .001) and the time series of each recording (F =
+90.57, p < .001) significantly contributed to explaining the pupil size. 
+The results of the GAMM analysing pupil size (N = 28) are shown in 
+Table S4 and its partial effects are plotted in Fig. S2. When retaining all 
+data for the analyses (N = 39), i.e., including the 11 dogs who did not 
+provide valid data in each of the 4 test trials and including the trials in 
+which dogs' gaze was detected and on-screen for less than 70% of the 
+time, the parametric effect of trial type was not significant (t = 0.54, p =
+.592). The non-parametric effect of time, gaze coordinates on the screen, 
+and the combination of subject, condition and session number still 
+significantly contributed to explaining the pupil size (Table S5; Fig. S3 
+for partial effects plot).
+3. Discussion
+The aim of this eye-tracking study was to probe dogs' expectations 
+about human social conventions, using eye tracking and pupillometry. 
+Dogs' pupil size changes revealed their sensitivity to human conven￾tional gestures, specifically to the typical reaction to some human 
+communicative gestures. We found this difference even though dogs' 
+dwell times and number of gaze alternations between the two agents did 
+not differ significantly.
+Dogs paid close attention to the stimuli. On average, their gaze was 
+detected by the eye-tracker and on-screen for 92% of the time and they 
+alternated their gaze between the two agents' AoIs, suggesting that they 
+recognized the socially relevant parts of the scenes, consistently with the 
+findings of a previous eye-tracking study with dogs (Tornqvist ¨ et al., 
+2020). In particular, their vertical gaze coordinates (Fig. S1) suggest that 
+dogs focused their attention on the agents' faces and their dwell times as 
+well as their horizontal gaze coordinates (Fig. 3) indicate that they 
+closely followed the reacting agent's movements.
+Importantly, our design can rule out that dogs' pupillary response is 
+due to low-level (perceptual) features of the stimuli (including lumi￾nosity) because each video showing the reaction of the (approaching or 
+walking away) agent served, in one condition, as the surprising 
+(incongruent) stimulus and, in the other condition, as the expected 
+(congruent) stimulus relative to the previous communicative gesture. 
+This finding suggests that dogs might have third-party expectations 
+about the appropriate response to human conventional gestural 
+communication. Further, the pupillometry finding suggests that these 
+expectations about what the agent will do are context-specific: the same 
+action is considered in one case surprising and in the other case ex￾pected. There is evidence of animals (mainly apes) being sensitive to 
+conventions in relation to the self, yet so far expectations about con￾ventions that do not directly involve the observer have not been re￾ported in non-human animals (Schmidt & Rakoczy, 2023). When 
+addressed directly and ostensively, dogs are skilled at following human 
+deictic gestures to locate hidden food (Kaminski & Nitzschner, 2013; 
+ManyDogs Project, et al., 2023). In the present study, we found indirect 
+evidence that, in the context of a third-party interaction between two 
+humans, dogs expected a pointing gesture away from the communicator 
+and in the direction of the recipient of the signal, to lead the recipient to 
+move in the signalled direction. They also expected that the communi￾cator tapping with her hands on her thighs and beckoning would lead to 
+the recipient to move closer. Dogs' pupil sizes reacted to the incongruent 
+actions despite the dogs never being addressed by the depicted agents. 
+Hence, dogs' expectations in this study were not self-centred and 
+extended to third-party interactions between two humans.
+Conventions, defined as behavioural regularities exhibited by a 
+majority in recurring social circumstances (Lewis, 1969), allow ob￾servers to form expectations about how other individuals will typically 
+behave in such circumstances. Importantly, however, conventions are 
+different from norms in that they do not inform about how individuals 
+ought to behave in a given context (Bicchieri, 2006). We argue that the 
+present findings highlight dogs' sensitivity to human social conventions, 
+i.e., dogs' expectations about the typical reaction an individual will 
+show, but more research is needed to assess whether dogs might also 
+understand social norms, intended as an understanding of how an in￾dividual ought to behave in a certain social situation. Interestingly, 
+however, scholars approaching norm psychology from a comparative 
+perspective have criticized heavily mentalistic accounts of norm psy￾chology, such as the one just described, and extend at least simpler 
+notions of social norms also to non-human species (Andrews et al., 2024; 
+Fig. 4. Pupillometry time course. A) Time series plot showing dogs' pupil size (in arbitrary units and baseline corrected). The orange and blue lines show the mean 
+pupil size (±se, coloured shaded area around the lines) in the Congruent and Incongruent trial types, respectively. The grey shaded area at the beginning of the plot 
+shows the 1000 ms that we used as baseline (between seconds 5 and 6 of the plot). The measuring IP (from second 6 to 10) is shown between dashed vertical lines. B) 
+The estimated difference in pupil size between trial types (Congruent - Incongruent) is shown during the measuring IP. The grey shaded area shows the 95% 
+confidence interval. The dogs' pupil size is significantly larger in the Incongruent than Congruent trial types (highlighted in red) between ms 7697 and ms 9111(the 
+reacting agent starts to move around ms 6000). (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of 
+this article.)
+L. Lonardo et al. Cognition 274 (2026) 106586
+6
+
+Westra et al., 2024). In this light, a few psychological processes are likely 
+to give rise to normative regularities across species, and the present 
+findings could indicate that dogs have at least one such process: a 
+“submentalistic behaviour understanding” (Andrews et al., 2024), i.e., 
+in this case, dogs formed expectations about the future reaction of the 
+receiver of communicative gestures based on the dogs' own previous 
+learning experience (associative learning through direct reinforcement 
+or observational learning). Associative and reinforcement learning are 
+also considered building blocks of human norm psychology (Andrews 
+et al., 2024). Based on the present findings, we do not claim that dogs in 
+their own behaviour follow human-like conventions nor that their ex￾pectations are necessarily homologous to those that humans might form 
+watching the same stimuli. What our findings suggest is that dogs can 
+detect violations of behavioural regularities when observing incon￾gruent human social interactions and thus dogs' expectations about 
+some human communicative conventions might be functionally similar 
+to those of humans.
+Showing non-conspecific actors might make processing social in￾teractions more demanding for dogs (Tornqvist ¨ et al., 2015). However, 
+we deliberately chose to show videos of human agents to investigate if 
+domestic animals with extensive exposure to human social conventions 
+would come to have expectations about some human-typical conven￾tions, and the pupillometry results provide initial evidence in favour of 
+this hypothesis.
+The dwell times confirmed that dogs paid attention to the human 
+agents producing and reacting to human-typical communicative ges￾tures, even if the agents never addressed the dogs directly. Yet, dogs 
+looked at the reacting actress equally long irrespective of whether her 
+reaction was congruent or incongruent with the communicative gesture 
+she had previously received.
+Dogs' gaze pattern suggests that they were following the actions of 
+the two humans in all videos to a similar extent. Indeed, on average they 
+looked for about 4.4. s at the approaching actress, (irrespective of 
+whether her approach was preceded by an invite to approach or by a 
+signal to move away from the signalling actress) and for about 3.9/4.0 s 
+at the agent moving away (irrespective of whether this was preceded by 
+an invite or a signal to move away). This suggests that strictly matching 
+the stimuli across conditions and controlling for low-level visual features 
+of the stimuli ensuring comparable visual engagement across conditions 
+is an important methodological concern for pupillometry studies with 
+dogs.
+One might wonder why dogs' dwell times and gaze alternations did 
+not significantly differentiate between congruent and incongruent re￾sponses, while their pupil size changes did. First, the dogs' chin-rest 
+training may have led to a ceiling effect in their dwell time data. 
+Similar to adult human participants in eye-tracking studies, most of the 
+dogs in our study stayed on the chin-rest and looked on the screen 
+throughout the test trials, which might have reduced the variance in 
+dwell times we might have observed otherwise. Second, eye movements 
+(including measures such as dwell times and AoI transitions) may be less 
+sensitive measures of expectancy violations than pupil dilation. This 
+hypothesis is consistent with findings from developmental psychology 
+with human infants and toddlers (Geangu et al., 2011; Hepach & 
+Westermann, 2013; Sirois, 2009), as well as with a previous study with 
+dogs (Lonardo et al., 2024). However, given the lack of effects on dogs' 
+looking patterns, the pupillometry results need to be replicated and dogs' 
+understanding of social expectations warrants further investigation, 
+especially given that in this study we only probed dogs' sensitivity to the 
+social conventions behind two communicative gestures.
+Our study does not reveal when and how dogs acquire their expec￾tations regarding the common reactions to human conventional ges￾tures. For example, these expectations might originate from explicit 
+training or mere exposure to human communicative gestures (observa￾tional learning). Either of these learning mechanism could result in ex￾pectations concerning the likely (i.e., more frequently co-occurring) 
+reactions to the gestures presented in our stimuli. Our study shows, 
+however, that these expectations extend to third-party interactions be￾tween two humans presented on a screen. Therefore, the dogs either 
+acquired these expectations through first-person interactions with 
+humans and transferred them to a third-person (human-human) context, 
+or they acquired these expectations by observing human or dog-human 
+interactions. Both possibilities would highlight how flexibly dogs keep 
+track of the communicative interactions in their social environment and 
+thus our findings pave the way for further investigations into dogs' 
+sensitivity to human social conventions and its origins.
+CRediT authorship contribution statement
+Lucrezia Lonardo: Writing – review & editing, Writing – original 
+draft, Visualization, Validation, Supervision, Software, Project admin￾istration, Methodology, Formal analysis, Data curation, Conceptualiza￾tion. Christoph J. Volter: ¨ Conceptualization, Formal analysis, 
+Methodology, Software, Validation, Visualization, Writing – review & 
+editing. Ludwig Huber: Conceptualization, Funding acquisition, 
+Methodology, Resources, Writing – review & editing.
+Declaration of competing interest
+The authors declare no competing interests.
+Acknowledgements
+The authors are grateful to all owners and dogs who participated in 
+the study. We also wish to thank: Karin Bayer for administrative support; 
+Laura Laussegger and Marion Umek for training and testing the dogs. 
+This research was funded in whole or in part by the Austrian Science 
+Fund (FWF) grants: [grant DOI: 10.55776/P36853], “DK Cognition and 
+Communication 2”: W1262-B29 [10.55776/W1262] and P36896-B 
+[grant DOI 10.55776/P36896]. For open access purposes, the authors 
+have applied a CC BY public copyright license to any author-accepted 
+manuscript version arising from this submission.
+Appendix A. Supplementary material
+Supplementary material can be found online at https://doi.org/10 
+.1016/j.cognition.2026.106586.
+Data availability
+The data and code for statistical analyses of this experiment are 
+available at: https://doi.org/10.5281/zenodo.17523757
+References
+Andrews, K., Fitzpatrick, S., & Westra, E. (2024). Human and nonhuman norms: A 
+dimensional framework. Philosophical Transactions of the Royal Society B: Biological 
+Sciences, 379(1897), 20230026. https://doi.org/10.1098/rstb.2023.0026
+Baayen, R. H. (2008). Analyzing linguistic data: A practical introduction to statistics using R. 
+Cambridge University Press. https://doi.org/10.1017/CBO9780511801686
+Barnard, S., Passalacqua, C., Pelosi, A., Valsecchi, P., & Prato-Previde, E. (2019). Effects 
+of breed group and development on dogs’ willingness to follow a human misleading 
+advice. Animal Cognition, 22(5), 757–768.
+Beier, J. S., & Spelke, E. S. (2012). Infants’ developing understanding of social gaze. Child 
+Development, 83(2), 486–496. https://doi.org/10.1111/j.1467-8624.2011.01702.x
+Bekoff, M. (2015). Playful fun in dogs. Current Biology, 25(1), R4–R7. https://doi.org/ 
+10.1016/j.cub.2014.09.007
+Bicchieri, C. (2006). The grammar of society. Cambridge University Press. 
+Cartmill, E. A., Ece Demir, O., ¨ & Goldin-Meadow, S. (2011). Studying gesture. In E. Hoff 
+(Ed.), Research methods in child language (1st ed., pp. 208–225). Wiley. https://doi. 
+org/10.1002/9781444344035.ch14. 
+Chijiiwa, H., Takagi, S., Arahori, M., Hori, Y., Saito, A., Kuroshima, H., & Fujita, K. 
+(2021). Dogs and cats prioritize human action: Choosing a now-empty instead of a 
+still-baited container. Animal Cognition, 24(1), 65–73. https://doi.org/10.1007/ 
+s10071-020-01416-w
+Coile, D. C., Pollitz, C. H., & Smith, J. C. (1989). Behavioral determination of critical 
+flicker fusion in dogs. Physiology & Behavior, 45(6), 1087–1092.
+L. Lonardo et al. Cognition 274 (2026) 106586
+7
+
+D’Aniello, B., Scandurra, A., Alterisio, A., Valsecchi, P., & Prato-Previde, E. (2016). The 
+importance of gestural communication: A study of human–dog communication using 
+incongruent information. Animal Cognition, 19(6), 1231–1235. https://doi.org/ 
+10.1007/s10071-016-1010-5
+Geangu, E., Hauf, P., Bhardwaj, R., & Bentz, W. (2011). Infant pupil diameter changes in 
+response to others’ positive and negative emotions. PLoS One, 6(11), Article e27132. 
+https://doi.org/10.1371/journal.pone.0027132
+Genty, E., & Zuberbühler, K. (2015). Iconic gesturing in bonobos. Communicative & 
+Integrative Biology, 8(1), Article e992742. https://doi.org/10.4161/ 
+19420889.2014.992742
+Guidetti, M., & Nicoladis, E. (2008). Introduction to special issue: Gestures and 
+communicative development. First Language, 28(2), 107–115. https://doi.org/ 
+10.1177/0142723708088914
+Hare, B., & Tomasello, M. (2005). Human-like social skills in dogs? Trends in Cognitive 
+Sciences, 9(9), 439–444.
+Hepach, R., & Westermann, G. (2013). Infants’ sensitivity to the congruence of others’ 
+emotions and actions. Journal of Experimental Child Psychology, 115(1), 16–29. 
+https://doi.org/10.1016/j.jecp.2012.12.013
+Heyes, C. (2024). Rethinking norm psychology. Perspectives on Psychological Science, 19 
+(1), 12–38. https://doi.org/10.1177/17456916221112075
+Hobaiter, C., & Byrne, R. W. (2014). The meanings of chimpanzee gestures. Current 
+Biology, 24(14), 1596–1600. https://doi.org/10.1016/j.cub.2014.05.066
+Huber, L. (2016). How dogs perceive and understand us. Current Directions in 
+Psychological Science, 25(5), 339–344. https://doi.org/10.1177/0963721416656329
+Huber, L., & Lonardo, L. (2023). Canine perspective-taking. Animal Cognition, 26(1), 
+275–298.
+Kaminski, J., & Marshall-Pescini, S. (Eds.). (2014). The social dog: Behavior and cognition. 
+Elsevier. 
+Kaminski, J., & Nitzschner, M. (2013). Do dogs get the point? A review of dog–human 
+communication ability. Learning and Motivation, 44(4), 294–302. https://doi.org/ 
+10.1016/j.lmot.2013.05.001
+Kaminski, J., Schulz, L., & Tomasello, M. (2012). How dogs know when communication 
+is intended for them. Developmental Science, 15(2), 222–232. https://doi.org/ 
+10.1111/j.1467-7687.2011.01120.x
+Karl, S., Boch, M., Vir´
+anyi, Z., Lamm, C., & Huber, L. (2020). Training pet dogs for eye￾tracking and awake fMRI. Behavior Research Methods, 52(2), 838–856. https://doi. 
+org/10.3758/s13428-019-01281-7
+Koster, ¨ M., & Hepach, R. (2024). Preverbal infants’ understanding of social norms. 
+Scientific Reports, 14(1), 2983. https://doi.org/10.1038/s41598-024-53110-3
+Kret, M. E., & Sjak-Shie, E. E. (2019). Preprocessing pupil size data: Guidelines and code. 
+Behavior Research Methods, 51(3), 1336–1342.
+Kundey, S. M. A., De Los Reyes, A., Arbuthnot, J., Allen, R., Coshun, A., Coshun, A., … 
+Royer, E. (2010). Domesticated dogs’ (Canis familiaris) response to dishonest human 
+points. International Journal of Comparative Psychology, 23(2). https://doi.org/ 
+10.46867/IJCP.2010.23.02.02
+Lakatos, G., G´
+acsi, M., Top´
+al, J., & Miklosi, ´ A. ´ (2012). Comprehension and utilisation of 
+pointing gestures and gazing in dog–human communication in relatively complex 
+situations. Animal Cognition, 15(2), 201–213. https://doi.org/10.1007/s10071-011- 
+0446-x
+Lakatos, G., Soproni, K., Doka, ´ A., & Miklosi, ´ A. ´ (2009). A comparative approach to dogs’ 
+(Canis familiaris) and human infants’ comprehension of various forms of pointing 
+gestures. Animal Cognition, 12(4), 621–631. https://doi.org/10.1007/s10071-009- 
+0221-4
+Lewis, D. K. (1969). Convention: A philosophical study. Harvard University Press. 
+Leys, C., Ley, C., Klein, O., Bernard, P., & Licata, L. (2013). Detecting outliers: Do not use 
+standard deviation around the mean, use absolute deviation around the median. 
+Journal of Experimental Social Psychology, 49(4), 764–766. https://doi.org/10.1016/ 
+j.jesp.2013.03.013
+Lonardo, L., Volter, ¨ C. J., Hepach, R., Lamm, C., & Huber, L. (2024). Do dogs 
+preferentially encode the identity of the target object or the location of others’ 
+actions? Animal Cognition, 27(1), 28. https://doi.org/10.1007/s10071-024-01870-w
+Lonardo, L., Volter, ¨ C. J., & Huber, L. (2026). Data and code for ‘pupil size changes reveal 
+that dogs are sensitive to the social conventions behind human gestures’ (10.5281/ 
+zenodo.17523757; version 2). Zenodo. https://doi.org/10.5281/zenodo.17523757. 
+ManyDogs Project, M, Espinosa, J., Stevens, J. R., Alberghina, D., Alway, H. E. E., 
+Barela, J. D., … Zylberfuden, S. G. (2023). ManyDogs 1: A multi-lab replication 
+study of dogs’ pointing comprehension. Animal Behavior and Cognition, 10(3), 
+232–286. https://doi.org/10.26451/abc.10.03.03.2023
+Marshall-Pescini, S., Passalacqua, C., Miletto Petrazzini, M. E., Valsecchi, P., & Prato￾Previde, E. (2012). Do dogs (Canis lupus familiaris) make counterproductive choices 
+because they are sensitive to human ostensive cues? PLoS One, 7(4), Article e35437. 
+https://doi.org/10.1371/journal.pone.0035437
+Mathot, ˆ S., Fabius, J., Van Heusden, E., & Van der Stigchel, S. (2018). Safe and sensible 
+preprocessing and baseline correction of pupil-size data. Behavior Research Methods, 
+50(1), 94–106. https://doi.org/10.3758/s13428-017-1007-2
+McCullagh, P., & Nelder, J. A. (1989). Generalized linear models. London: Chapman & 
+Hall. 
+Nitzschner, M., Melis, A. P., Kaminski, J., & Tomasello, M. (2012). Dogs (Canis familiaris) 
+evaluate humans on the basis of direct experiences only. https://doi.org/10.1371/ 
+journal.pone.0046880
+Petter, M., Musolino, E., Roberts, W. A., & Cole, M. (2009). Can dogs (Canis familiaris) 
+detect human deception? Behavioural Processes, 82(2), 109–118.
+Powell, L. J., & Spelke, E. S. (2013). Preverbal infants expect members of social groups to 
+act alike. Proceedings of the National Academy of Sciences, 110(41). https://doi.org/ 
+10.1073/pnas.1304326110
+Powell, L. J., & Spelke, E. S. (2018). Human infants’ understanding of social imitation: 
+Inferences of affiliation from third party observations. Cognition, 170, 31–48. 
+https://doi.org/10.1016/j.cognition.2017.09.007
+R Core Team. (2025). R: A language and environment for statistical computing. [Computer 
+software]. R Foundation for Statistical Computing. https://www.R-project.org/. 
+Rakoczy, H., & Schmidt, M. F. H. (2013). The early ontogeny of social norms. Child 
+Development Perspectives, 7(1), 17–21. https://doi.org/10.1111/cdep.12010
+Ravi, N., Gabeur, V., Hu, Y.-T., Hu, R., Ryali, C., Ma, T., … Feichtenhofer, C. (2024). SAM 
+2: Segment anything in images and videos (version 2). arXiv. https://doi.org/10.48550/ 
+ARXIV.2408.00714
+van Rij, J., Hendriks, P., van Rijn, H., Baayen, R. H., & Wood, S. N. (2019). Analyzing the 
+time course of pupillometric data. Trends in Hearing, 23, Article 233121651983248. 
+https://doi.org/10.1177/2331216519832483
+Scandurra, A., Alterisio, A., Marinelli, L., Mongillo, P., Semin, G. R., & D’Aniello, B. 
+(2017). Effectiveness of verbal and gestural signals and familiarity with signal￾senders on the performance of working dogs. Applied Animal Behaviour Science, 191, 
+78–83. https://doi.org/10.1016/j.applanim.2017.02.003
+Schmidt, M. F. H., & Rakoczy, H. (2023). Children’s acquisition and application of 
+norms. Annual Review of Developmental Psychology, 5(1), 193–215. https://doi.org/ 
+10.1146/annurev-devpsych-120621-034731
+Jackson, & Sirois, S. (2009). Infant cognition: Going full factorial with pupil dilation. 
+Developmental Science, 12(4), 670–679. https://doi.org/10.1111/j.1467- 
+7687.2008.00805.x
+Jackson, & Sirois, S. (2022). But that’s possible! Infants, pupils, and impossible events. 
+Infant Behavior and Development, 67, Article 101710. https://doi.org/10.1016/j. 
+infbeh.2022.101710
+Smithson, M., & Verkuilen, J. (2006). A better lemon squeezer? Maximum-likelihood 
+regression with beta-distributed dependent variables. Psychological Methods, 11(1), 
+54. https://doi.org/10.1037/1082-989X.11.1.54
+Soproni, K., Miklosi, ´ A., Top´
+al, J., & Cs´
+anyi, V. (2001). Comprehension of human 
+communicative signs in pet dogs (Canis familiaris). Journal of Comparative Psychology, 
+115(2), 122–126. https://doi.org/10.1037/0735-7036.115.2.122
+Szetei, V., Miklosi, ´ A., ´ Top´
+al, J., & Csanyi, ´ V. (2003). When dogs seem to lose their nose: 
+An investigation on the use of visual and olfactory cues in communicative context 
+between dog and owner. Applied Animal Behaviour Science, 83(2), 141–152. https:// 
+doi.org/10.1016/S0168-1591(03)00114-X
+Tauzin, T., Csik, A., Kis, A., & Topal, J. (2015). What or where? The meaning of 
+referential human pointing for dogs (Canis familiaris). Journal of Comparative 
+Psychology, 129(4), 334–338. https://doi.org/10.1037/a0039462
+Tomasello, M. (2007). If they’re so good at grammar, then why don’t they talk? Hints 
+from apes’ and humans’ use of gestures. Language Learning and Development, 3(2), 
+133–156. https://doi.org/10.1080/15475440701225451
+Top´
+al, J., Gergely, G., Erdohegyi, A., Csibra, G., & Miklosi, A. (2009). Differential 
+sensitivity to human communication in dogs, wolves, and human infants. Science, 
+325(5945), 1269–1272. https://doi.org/10.1126/science.1176960
+Top´
+al, J., Miklosi, ´ A., ´ Gacsi, ´ M., Doka, ´ A., Pongracz, ´ P., Kubinyi, E., … Cs´
+anyi, V. (2009). 
+Chapter 3 the dog as a model for understanding human social behavior. In , vol. 39. 
+Advances in the study of behavior (pp. 71–116). Elsevier. https://doi.org/10.1016/ 
+S0065-3454(09)39003-8. 
+Tornqvist, ¨ H., Somppi, S., Koskela, A., Krause, C. M., Vainio, O., & Kujala, M. V. (2015). 
+Comparison of dogs and humans in visual scanning of social interaction. Royal 
+Society Open Science, 2(9), Article 150341. https://doi.org/10.1098/rsos.150341
+Tornqvist, ¨ H., Somppi, S., Kujala, M. V., & Vainio, O. (2020). Observing animals and 
+humans: Dogs target their gaze to the biological information in natural scenes. PeerJ, 
+8, Article e10341. https://doi.org/10.7717/peerj.10341
+Volter, ¨ C. J., Gerwish, K., Berg, P., Vir´
+anyi, Z., & Huber, L. (2025). Using mobile eye 
+tracking to study dogs’ understanding of human referential communication. 
+Proceedings of the Royal Society B. https://doi.org/10.6084/m9.figshare.28226987. 
+v1
+Volter, ¨ C. J., Karl, S., & Huber, L. (2020). Dogs accurately track a moving object on a 
+screen and anticipate its destination. Scientific Reports, 10(1), 1–10. https://doi.org/ 
+10.1038/s41598-020-72506-5
+Westra, E., Fitzpatrick, S., Brosnan, S. F., Gruber, T., Hobaiter, C., Hopper, L. M., … 
+Andrews, K. (2024). In search of animal normativity: A framework for studying 
+social norms in non-human animals. Biological Reviews, 99(3), 1058–1074. https:// 
+doi.org/10.1111/brv.13056
+Wood, S. N. (2011). Fast stable restricted maximum likelihood and marginal likelihood 
+estimation of semiparametric generalized linear models: Estimation of 
+semiparametric generalized linear models. Journal of the Royal Statistical Society: 
+Series B (Statistical Methodology), 73(1), 3–36. https://doi.org/10.1111/j.1467- 
+9868.2010.00749.x
+L. Lonardo et al. Cognition 274 (2026) 106586
+8

@@ -1,0 +1,37 @@
+{
+  "wang_horowitz_2026": {
+    "citation": "Wang A. & Horowitz A. (2026) Dogs (Canis familiaris) distinguish conspecific emotional chemosignals. Sci Rep 16:11176.",
+    "doi": "10.1038/s41598-026-41426-1",
+    "text": "data/raw/wang_horowitz_2026/paper_fulltext.txt (PMC full text, 87 KB)",
+    "data": "NOT AVAILABLE. Declared at Dryad doi:10.5061/dryad.bzkh189pt; dataset metadata is reachable but every file-download route returns HTTP 401/403 behind a bot gate. Not circumvented.",
+    "design": "Habituation-discrimination; 43 dogs; conspecific odour samples from joy / stress / baseline(relax) events, plus a blank control."
+  },
+  "goold_2016": {
+    "citation": "Goold C., Vas J., Olsen C. & Newberry R.C. (2016) Using network analysis to study behavioural phenotypes: an example using domestic dogs. R. Soc. Open Sci. 3:160268.",
+    "doi": "10.1098/rsos.160268",
+    "text": "data/raw/goold_2016/paper_fulltext.txt (PMC full text, 64 KB) + Supplementary_Material_Revised.pdf",
+    "data": "FULL: rawData.csv (171 rows x 47 cols), finalMIdata_averaged_rounded.csv, PatrolDog/DetectionDog_GGM_AssociationMatrix.csv, and the authors' own Rscript.R (55 KB).",
+    "design": "Survey ratings of police patrol and detection dogs; Gaussian graphical model (GGM) networks of conditional independence; centrality measures; node-wise and subject-wise bootstrap stability."
+  },
+  "forman_2023": {
+    "citation": "Forman J., Renner E. & Leavens D.A. (2023) Fetching felines: a survey of cat owners on the diversity of cat (Felis catus) fetching behaviour. Sci Rep 13:20456.",
+    "doi": "10.1038/s41598-023-47409-w",
+    "text": "data/raw/forman_2023/paper.pdf and paper_fulltext.txt (60 KB)",
+    "data": "FULL: supplementary/41598_2023_47409_MOESM3_ESM.csv (1154 cats x 75 variables) plus MOESM6 (xlsx) and the survey instrument (MOESM1).",
+    "design": "Owner survey, 924 owners reporting on 1154 cats; descriptive proportions, tests of unequal distributions for who initiates/terminates fetching, plus thematic analysis. Paper states normality was checked with Shapiro-Wilk and QQ plots."
+  },
+  "lonardo_2026": {
+    "citation": "Lonardo L., Volter C.J. & Huber L. (2026) Pupil size changes reveal that dogs are sensitive to the social conventions behind human gestures. Cognition 274:106586.",
+    "doi": "10.1016/j.cognition.2026.106586",
+    "text": "NOT AVAILABLE as full text. Elsevier, no PMCID, no OA copy. ABSTRACT ONLY (reproduced in your task). Treat the paper's claims as known only from the abstract.",
+    "data": "FULL data and the authors' own analysis code: data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/ -- samplereport parquet (5781 rows x 13 cols: subject, trial_type, condition, time, RIGHT.pupil.base.corrected, ...), ALL_DATA parquet, three interest-area reports, counterbalancing csv (45 rows, 30 unique Dog_ID), and two analysis scripts (pupil size .Rmd, dwell time .rmd) with a functions/ library (boot_glmm, glmm_stability, diagnostic_fcns).",
+    "design": "Within-subject eye-tracking; reported N = 39 dogs; congruent vs incongruent responses to 'come here' / 'go away' gestures; outcomes are looking time, gaze transitions, and pupil size change. Authors used GLMMs with bootstrapped CIs."
+  },
+  "alavinaini_2026": {
+    "citation": "Alavi Naini L., Linde N., Malik S., Syed Y. & Cheek A.O. (2026) Diel Activity Patterns of Bobcats and Domestic Cats in the Houston Metropolitan Area. microPublication Biology.",
+    "doi": "10.17912/micropub.biology.001911",
+    "text": "data/raw/alavinaini_2026/paper_fulltext.txt (20 KB, from PMC XML) + PMC13310411.xml",
+    "data": "NOT AVAILABLE. The paper carries no data availability statement and no deposit was found. Not retrieved.",
+    "design": "Camera traps, 33 sites, 14,386 trap-days, 16 seasons (Oct 2020 - Aug 2024). 81 bobcat and 795 domestic cat detections. Circular statistics: Watson's U2 comparing diel activity, and the overlap coefficient Delta-hat. Reported: single-species sites U2 = 0.0753, p < 0.20, Delta-hat = 0.852 (n = 49 bobcat, 696 cat detections); co-occurrence sites U2 = 0.189, p < 0.05, Delta-hat = 0.647 (n = 32 bobcat, 99 cat detections)."
+  }
+}

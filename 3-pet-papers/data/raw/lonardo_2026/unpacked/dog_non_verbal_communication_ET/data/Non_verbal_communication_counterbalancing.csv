@@ -1,0 +1,46 @@
+Dog_ID,Date1,Date2,Date3,Date4,EDF1,EDF2,EDF3,EDF4,Cal_tar1,Cal_tar2,Cal_tar3,Cal_tar4,Name,Breed,sex,neutered,birth_date,age,type_first_condition,condition_first,order
+1,23/01/2023,21/02/2023,06/03/2023,14/03/2023,George_1,George_2,George_3,George_4,w_cuckoo64,w_calibug64,w_cuckoo64,w_cuckoo64,George4,collie,m,no,12/04/2019,45,incongruent,GA,GA-CA-CG-GG
+2,25/01/2023,13/02/2023,20/02/2023,16/03/2023,Georgia1,Georgia2,Georgia3,Georgia4,w_cuckoo64,w_minion64,w_mandala64,w_cuckoo64,Georgia,labrador_retriever,f,yes,29/12/2017,60,incongruent,CG,CG-CA-GA-GG
+3,19/01/2023,26/01/2023,30/01/2023,07/02/2023,Timo_1,Timo_2,Timo_3,Timo_4,w_mouse64,w_minion64,w_cuckoo64,w_cuckoo64,Timo2,mix,m,yes,01/02/2019,47,congruent,CA,CA-GA-GG-CG
+4,24/01/2023,10/02/2023,21/02/2023,27/02/2023,Melody_1/Melody_2,Melody_3,Melody_4,Melody_5,w_cuckoo64/w_fly64,w_minion64,w_minion64,w_fly64,Melody,labrador_retriever,f,yes,14/08/2018,53,congruent,GG,GG-CG-CA-GA
+5,14/02/2023,23/02/2023,27/02/2023,07/03/2023,Hetti_1,Hetti_2,Hetti_3,Hetti_4,w_cuckoo64,w_cuckoo64,w_fly64,w_fly64,Hetti,mix,f,no,10/01/2019,49,incongruent,GA,GA-CA-CG-GG
+6,20/01/2023,03/02/2023,16/02/2023,06/03/2023,Lilly_1,Lilly_2,Lilly_3,Lilly_4,w_fly64,w_minion64,w_starjumps64,w_minion64,Lilly9,mix,f,yes,07/09/2017,64,incongruent,GA,GA-GG-CG-CA
+7,19/01/2023,24/01/2023,31/01/2023,14/02/2023,Maylo_1,Maylo_2,Maylo_3,Maylo_4,w_fly64,w_minion64,w_minion64,w_smiley64,Maylo,mix,m,yes,13/11/2015,86,incongruent,GA,GA-GG-CG-CA
+8,25/01/2023,22/02/2023,06/03/2023,28/03/2023,Asta_1,Asta_2,Asta_3,Asta_4,w_cuckoo64,w_mouse64,w_starjumps64,w_minion64,Asta2,border_collie,f,no,05/10/2018,51,congruent,CA,CA-GA-GG-CG
+9,31/01/2023,21/02/2023,07/03/2023,14/03/2023,Joker_1,Joker_2,Joker_3,Joker_4,w_minion64,w_fly64,w_fly64,w_fly64,Joker4,australian_shepherd,m,no,18/08/2016,77,congruent,GG,GG-GA-CA-CG
+10,23/02/2023,13/03/2023,30/03/2023,24/05/2023,Zserbo_1,Zserbo_2,Zserbo_3,Zserbo_4,w_mouse64,w_minion64,w_minion64,w_minion64,Zserbo,small_muensterlaender,m,yes,24/12/2019,37,congruent,GG,GG-GA-CA-CG
+11,02/02/2023,23/02/2023,16/03/2023,27/03/2023,Ace_1,Ace_2,Ace_3,Ace_4,w_minion64,w_mouse64,w_fly64,w_fly64,Ace3,border_collie,m,yes,15/03/2019,46,incongruent,CG,CG-GG-GA-CA
+12,05/04/2023,14/04/2023,12/10/2023,25/05/2023,Knopfi_1,Knopfi_2,Knopf_3,Knopfi_4,w_cuckoo64,w_cuckoo64,w_minion64,w_minion64,Knopfi,australian_shepherd,m,yes,26/09/2016,78,incongruent,CG,CG-CA-GA-GG
+13,08/03/2023,20/03/2023,30/03/2023,17/04/2023,Juna_1,Juna_2,Juna_3,Juna_4,w_cuckoo64,w_fly64,w_fly64,w_cuckoo64,Juna,flat_coated_retriever,f,no,06/02/2016,85,incongruent,CG,CG-CA-GA-GG
+14,24/07/2023,04/08/2023,07/08/2023,,Lenny_1,Lenny_2,Lenny_3,,w_cuckoo65,w_minion64,w_cuckoo64,,Lenny4,canarian_warren_hound,m,yes,15/07/2014,108,congruent,CA,CA-CG-GG-GA
+15,09/02/2023,24/02/2023,06/03/2023,13/03/2023,Amy_1,Amy_2,Amy_3,Amy_4,w_cuckoo64,w_mignon64,w_minion64,w_minion64,Amy8,border_collie,f,no,12/03/2010,154,congruent,CA,CA-CG-GG-GA
+16,19/01/2023,26/01/2023,30/01/2023,07/02/2023,Mailo_1/Mailo_5,Mailo_2,Mailo_3,Mailo_4,w_minion64,w_minion64,w_cuckoo64,w_minion64,Mailo,mix,m,yes,09/07/2015,90,incongruent,GA,GA-GG-CG-CA
+17,24/05/2023,04/10/2023,10/10/2023,08/11/2023,Alaska_1,Alaska_2,Alaska_3,Alaska_4,w_minion64,w_mouse64,w_mouse64,w_minion64,Alaska2,sandros_leisha_dog,f,no,20/10/2019,43,incongruent,CG,CG-GG-GA-CA
+18,23/01/2023,01/02/2023,08/02/2023,22/02/2023,Mia_1,Mia_2,Mia_3,Mia_4,w_fly64,w_fly64,w_fly64,w_mignon64,Mia11,mix,f,no,01/10/2018,51,congruent,GG,GG-GA-CA-CG
+19,02/02/2023,09/03/2023,21/03/2023,18/04/2023,Milo_1,Milo_2,Milo_3,Milo_4,w_minion64,w_mouse64,w_minion64,w_mouse64,Milo7,australian_shepherd,m,no,20/04/2019,45,congruent,GG,GG-CG-CA-GA
+20,07/03/2023,13/03/2023,18/04/2023,11/05/2023,Edgar_1,Edgar_2,Edgar_3,Edgar_4,w_fly64,w_fly64,w_fly64,w_minion64,Edgar3,mix,m,yes,01/06/2019,45,congruent,CA,CA-CG-GG-GA
+21,19/04/2023,10/05/2023,24/05/2023,31/05/2023,Ignaz_1,Ignaz_2,Ignaz_3,Ignaz_4,w_cuckoo64,w_cuckoo64,w_minion64,w_minion64,Ignaz,fox_terrier,m,no,05/01/2021,27,congruent,CA,CA-GA-GG-CG
+22,09/06/2023,30/06/2023,07/07/2023,14/07/2023,Danny_1,Danny_2,Danny_3,Danny_4,w_minion64,w_minion64,w_fly64,w_minion64,Danny1,hungarian_vizsla,m,no,20/02/2021,27,incongruent,GA,GA-GG-CG-CA
+23,08/02/2023,22.02.2023/08.03.2023,,24/03/2023,Sahibu_1,Sahibu_2/Sahibu_3,Sahibu_4,Sahibu_5,w_minion64,w_fly64/w_minion,w_minion64,w_fly64,Sahibu,mix,m,no,21/03/2014,106,incongruent,CG,CG-GG-GA-CA
+24,04/08/2023,11/08/2023,30/08/2023,06/09/2023,Filou_1,Filou_2,Filou_3,Filou_4,w_minion64,w_minion64,w_minion64,w_minion64,Filou9,mix,m,no,02/06/2021,26,congruent,GG,GG-GA-CA-CG
+26,03/04/2023,17/04/2023,26/04/2023,05/05/2023,Jimi_1,Jimi_2,Jimi_3,Jimi_4,w_minion64,w_minion64,w_cuckoo64,w_cuckoo64,Jimi,mix,m,yes,07/10/2010,149,incongruent,GA,GA-CA-CG-GG
+27,10/03/2023,24/03/2023,31/03/2023,21/04/2023,Sheila_1,Sheila_2,Sheila_3,Sheila_4,w_minion64,w_minion64,w_minion64,w_minion64,Sheila,mix,f,no,01/12/2012,123,congruent,CA,CA-GA-GG-CG
+30,25/08/2023,30/08/2023,08/09/2023,15/09/2023,CB_1,CB_2,CB_3,CB_4,w_mouse64,w_minion64,w_mouse64,w_mouse64,CB,border_collie,f,yes,17/02/2017,78,incongruent,GA,GA-CA-CG-GG
+18,13/03/2023,21/03/2023,28/03/2023,20/04/2023,Kelly_1,Kelly_2,Kelly_3,Kelly_4,w_fly64,w_minion64,w_cuckoo64,w_fly64,Kelly2,australian_shepherd,f,no,13/03/2022,12,congruent,GG,GG-GA-CA-CG
+3,20/03/2023,28/03/2023,20/04/2023,27/04/2023,Zuzu_1,Zuzu_2,Zuzu_3,Zuzu_4,w_fly64,w_fly64,w_fly64,w_fly64,Zuzu,mix,f,yes,06/11/2020,28,congruent,CA,CA-GA-GG-CG
+1,20/09/2023,27/09/2023,05/10/2023,23/10/2023,Henry9_1,Henry9_2,Henry9_3,Henry9_4,w_fly64,w_starjumps64,w_hand64,w_minion64,Henry9,mix,m,no,01/06/2022,15,incongruent,GA,GA-CA-CG-GG
+2,05/05/2023,16/05/2023,23/05/2023,31/05/2023,Henry7_1,Henry7_2,Henry7_3,Henry7_4,w_fly64,w_fly64,w_fly64,w_fly64,Henry7,mix,m,yes,17/04/2020,36,incongruent,CG,CG-CA-GA-GG
+25,22/11/2023,13/12/2023,03/01/2024,17/01/2024,Kalea_1,Kalea_2,Kalea_3,Kalea_4,w_minion64,w_cuckoo64,w_minion64,w_cuckoo64,Kalea,labrador_retriever,f,no,18/08/2020,39,incongruent,CG,CG-CA-GA-GG
+28,24/11/2023,01/12/2023,12/01/2024,02/02/2024,Mexx_1,Mexx_2,Mexx_3,Mexx_4,w_mouse64,w_mouse64,w_mouse64,w_mouse64,Mexx2,australian_shepherd,m,no,30/12/2011,142,congruent,CA,CA-CG-GG-GA
+18,09/01/2024,16/01/2024,23/01/2024,08/02/2024,Mathild1,Mathild2,Mathild3,Mathild4,w_minion64,w_minion64,w_minion64,w_minion64,Mathilda3,mix,f,no,20/02/2022,22,congruent,GG,GG-GA-CA-CG
+29,12/01/2024,,,,Floki_1,,,,w_minion64,,,,Floki,australian_shepherd,m,no,31/10/2021,26,congruent,GG,GG-CG-CA-GA
+4,16/01/2024,23/01/2024,30/01/2024,13/02/2024,Beny_1,Beny_2,Beny_3,Beny_4,w_minion64,w_minion64,w_minion64,w_minion64,Beny,mix,m,yes,28/04/2019,30,congruent,GG,GG-CG-CA-GA
+29,01/02/2024,12/02/2024,04/03/2024,11/03/2024,Nala_1,Nala_2/Nala_3,Nala_4,Nala_5,w_fly64,w_fly64,w_minion64,w_minion64,Nala13,mix,f,no,01/05/2020,34,congruent,GG,GG-CG-CA-GA
+11,29/04/2024,06/05/2024,13/05/2024,27/05/2024,Ori_1,Ori_2,Ori_3,Ori_4,w_minion64,w_minion64,w_minion64,w_minion64,Ori,duck tolling retriever,f,no,03/03/2018,38,incongruent,CG,CG-GG-GA-CA
+11,21/05/2024,02/07/2024,24/07/2024,21/08/2024,Vilma_1,Vilma_2,Vilma_3,Vilma_4,w_fly64,w_fly64,w_fly64,w_fly64,Vilma,Magyar Vizsla,f,no,20/02/2021,42,incongruent,CG,CG-GG-GA-CA
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,Mean age:,59.33333333,,,
+,,,,,,,,,,,,,,,,,Age range:,154,,,
+,,,,,,,,,,,,,,,,,,12,,,
+,,,,,,,,,,,,,,,,,SD age:,36.95112941,,,

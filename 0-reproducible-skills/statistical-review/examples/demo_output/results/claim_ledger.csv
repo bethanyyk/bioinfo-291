@@ -1,0 +1,5 @@
+claim_id,claim_short,verdict,effect_reported,effect_recomputed,ci_low,ci_high,p_reported,p_recomputed,reasons
+C1,compound X reduces tumour volume,supported-with-caveat,,-76.58411037615679,-116.59865885776662,-37.1081649184929,0.001,0.00039996000399960006,"96 observations from 8 units (12.0 per unit, ICC=0.95). Effective n is about 8.4, not 96. A test treating rows as independent overstates precision."
+C1u,C1 re-tested at the animal level,not-reproducible,,-76.58411037615679,-206.15889550154225,48.27137883036093,0.001,0.40175982401759824,reported p = 0.001 and recomputed p = 0.402 fall on opposite sides of alpha = 0.05; every route agrees with the recomputed value
+C2,effect reproduced in paired crossover,underpowered-resolution,,10.0,1.2,15.0,0.04,0.08959104089591041,"the design's permutation floor is p >= 0.0625, so no result from it can reach alpha = 0.05 | the reported p = 0.04 is below that floor; recomputing gives p = 0.0896"
+C3,effect persists at 12 months,not-assessable,,,,,,,no longitudinal data supplied; source data cover the 4-week endpoint only

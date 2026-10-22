@@ -1,0 +1,8 @@
+claim_id,statistic,reported,recomputed_from_data,reproduces,p_printed,p_permutation,p_asymptotic,crit_0p05,crit_0p20,decision_at_0p05_consistent,printed_bound_correct,note
+C1,Watson's U2,0.0753,0.07532584892323048,True,p < 0.20,0.4510774461276936,0.44693546162153686,0.18688002468743514,0.11659948520395377,True,False,"statistic reproduces exactly and both the paper and this review fail to reject at alpha = 0.05, so decision_at_0p05_consistent is True; but the printed BOUND is the wrong side -- U2 = 0.0753 < 0.1166 so p > 0.20, and the permutation p is 0.45"
+C2,Watson's U2,0.189,0.18934574755185443,True,p < 0.05,0.04654767261636918,0.04762480361247297,0.18688002468743514,0.11659948520395377,True,True,statistic reproduces exactly; p = 0.0465 unstratified but 0.0712 within-site and 0.0974 after a 30-min event filter
+C3a,Dhat1 (single-species sites),0.852,0.8523060802002932,True,none,,,,,,,"reproduces; 95% bootstrap CI [0.729, 0.897] never reported though the deposited script computes it"
+C3b,Dhat1 (co-occurrence sites),0.647,0.6466958888859164,True,none,,,,,,,"reproduces (deposit's own plot prints 0.646); 95% bootstrap CI [0.533, 0.805]"
+C6,"% bobcat detections at night, bobcat-only sites",67.0,67.34693877551021,True,none,,0.021294114141387155,,,,,"33/49 = 67.3%, matching v1's unique GRIM reconstruction"
+C7a,"% cat detections at night, cat-only sites",85.0,85.34482758620689,True,none,,,,,,,"594/696 = 85.3%, inside v1's reconstructed range 589-595"
+C7b,"% cat detections at night, co-occurrence sites",51.0,51.515151515151516,False,none,,,,,,,"51/99 = 51.5%, which rounds to 52% not the printed 51%; consistent with truncation, or with a one-detection difference in the night boundary. v1's reconstruction (50) was one out"

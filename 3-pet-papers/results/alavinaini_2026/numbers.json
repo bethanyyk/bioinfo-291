@@ -1,0 +1,463 @@
+{
+ "dst_offset_audit": {
+  "n_detections": 876,
+  "n_shifted_by_60min": 703,
+  "n_agreeing": 173,
+  "note": "the CSV's 'Local Time Value (ABS)' column uses a fixed UTC-6 offset; every detection recorded during daylight saving is one hour behind true local clock time. The MATLAB (Watson U2) analysis uses that column; the R (Dhat) analysis recomputes local time DST-aware. The paper's two analyses of diel activity therefore run on two different clocks."
+ },
+ "watson_published_basis": {
+  "C1": {
+   "observed": 0.07532584892323048,
+   "p_perm": 0.4510774461276936,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 49.0,
+   "n2": 696.0,
+   "null_q95": 0.18448462421302705
+  },
+  "C2": {
+   "observed": 0.18934574755185443,
+   "p_perm": 0.04654767261636918,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 32.0,
+   "n2": 99.0,
+   "null_q95": 0.18629664970313828
+  },
+  "C2_site": {
+   "observed": 0.18934574755185443,
+   "p_perm": 0.0711964401779911,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 32.0,
+   "n2": 99.0,
+   "null_q95": 0.20846393322538362
+  },
+  "C2_ev30": {
+   "observed": 0.15185633575464086,
+   "p_perm": 0.09744512774361282,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 28.0,
+   "n2": 90.0,
+   "null_q95": 0.18453860640301314
+  },
+  "C1_ev30": {
+   "observed": 0.08552322535741254,
+   "p_perm": 0.3719314034298285,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 42.0,
+   "n2": 617.0,
+   "null_q95": 0.18662486738263354
+  }
+ },
+ "watson_solar_basis": {
+  "C1": {
+   "observed": 0.09224385889509704,
+   "p_perm": 0.32373381330933454,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 49.0,
+   "n2": 696.0,
+   "null_q95": 0.18637247377543933
+  },
+  "C2": {
+   "observed": 0.2253787878787879,
+   "p_perm": 0.023148842557872105,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 32.0,
+   "n2": 99.0,
+   "null_q95": 0.18675905042794333
+  },
+  "C2_site": {
+   "observed": 0.2253787878787879,
+   "p_perm": 0.03784810759462027,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 32.0,
+   "n2": 99.0,
+   "null_q95": 0.21098051121906083
+  },
+  "cat_shift": {
+   "observed": 1.5148953570987838,
+   "p_perm": 4.999750012499375e-05,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 696.0,
+   "n2": 99.0,
+   "null_q95": 0.188122574330013
+  },
+  "bobcat_shift": {
+   "observed": 0.07908688166624672,
+   "p_perm": 0.4288285585720714,
+   "B": 20000.0,
+   "p_floor": 4.999750012499375e-05,
+   "n1": 49.0,
+   "n2": 32.0,
+   "null_q95": 0.18906499328126308
+  }
+ },
+ "watson_reported": {
+  "C1": 0.0753,
+  "C2": 0.189
+ },
+ "watson_asymptotic": {
+  "C1": 0.44693546162153686,
+  "C2": 0.04762480361247297,
+  "crit_05": 0.18688002468743514,
+  "crit_20": 0.11659948520395377
+ },
+ "u2_reproduction": {
+  "C1_recomputed": 0.07532584892323048,
+  "C1_reported": 0.0753,
+  "C2_recomputed": 0.18934574755185443,
+  "C2_reported": 0.189,
+  "reproduces": true
+ },
+ "dhat": {
+  "solo": 0.8523060802002932,
+  "both": 0.6466958888859164,
+  "reported_solo": 0.852,
+  "reported_both": 0.647,
+  "deposit_plot_both": 0.646,
+  "difference": 0.20561019131437674,
+  "estimator": "Dhat1",
+  "estimator_rule": "overlap's own rule: min(n) < 50 -> Dhat1; both comparisons qualify",
+  "n_boot": 2000,
+  "ci_solo_pct": [
+   0.7289780498904885,
+   0.8966168007772177
+  ],
+  "ci_both_pct": [
+   0.532703230700876,
+   0.8048580096525555
+  ],
+  "se_solo": 0.043784041130637545,
+  "se_both": 0.06894902184435747,
+  "ci_diff_pct": [
+   -0.00360626119601241,
+   0.30844060587696837
+  ],
+  "p_diff_le0": 0.0305,
+  "ci_diff_cluster": [
+   -0.06820815566963552,
+   0.2985296962927696
+  ],
+  "p_diff_le0_cluster": 0.08333333333333333,
+  "n_cluster_boot": 600
+ },
+ "clustering": {
+  "sites": {
+   "bobcat_only": 7,
+   "cat_only": 19,
+   "both": 7,
+   "total": 33
+  },
+  "detections_per_site_bobcat": {
+   "count": 14.0,
+   "mean": 5.785714285714286,
+   "std": 4.886064507722588,
+   "min": 1.0,
+   "25%": 1.25,
+   "50%": 4.0,
+   "75%": 10.0,
+   "max": 14.0
+  },
+  "detections_per_site_cat": {
+   "count": 26.0,
+   "mean": 30.576923076923077,
+   "std": 46.75653800436733,
+   "min": 1.0,
+   "25%": 5.25,
+   "50%": 17.5,
+   "75%": 30.5,
+   "max": 234.0
+  },
+  "top_cat_site": "SPTP",
+  "top_cat_site_n": 234,
+  "top_cat_site_share_of_all_cat": 0.2943396226415094,
+  "cat_both_per_site": {
+   "WCJP": 59,
+   "FHNA": 31,
+   "BSEC": 5,
+   "GWGC": 1,
+   "LGRP": 1,
+   "MOCC": 1,
+   "SOPC": 1
+  },
+  "bobcat_both_per_site": {
+   "WCJP": 12,
+   "FHNA": 10,
+   "MOCC": 5,
+   "LGRP": 2,
+   "BSEC": 1,
+   "GWGC": 1,
+   "SOPC": 1
+  },
+  "events_by_quiet_interval": {
+   "1": 831,
+   "5": 800,
+   "15": 787,
+   "30": 777,
+   "60": 765
+  },
+  "raw_detections": 876
+ },
+ "nocturnal": {
+  "bobcat_only": {
+   "k_night": 33,
+   "n": 49,
+   "pct": 67.34693877551021,
+   "wilson": [
+    53.37920531457014,
+    78.79250299818814
+   ],
+   "binom_p_vs_half": 0.021294114141387155
+  },
+  "cat_only": {
+   "k_night": 594,
+   "n": 696,
+   "pct": 85.34482758620689,
+   "wilson": [
+    82.52345833084463,
+    87.7781783897165
+   ],
+   "binom_p_vs_half": 2.792118722460919e-85
+  },
+  "bobcat_both": {
+   "k_night": 21,
+   "n": 32,
+   "pct": 65.625,
+   "wilson": [
+    48.31108797896222,
+    79.58956207556682
+   ],
+   "binom_p_vs_half": 0.11018416518345475
+  },
+  "cat_both": {
+   "k_night": 51,
+   "n": 99,
+   "pct": 51.515151515151516,
+   "wilson": [
+    41.79933827223579,
+    61.11777320634655
+   ],
+   "binom_p_vs_half": 0.8408215252256424
+  }
+ },
+ "nocturnal_reported": {
+  "bobcat_only": 67,
+  "cat_only": 85,
+  "cat_both": 51,
+  "bobcat_both": null
+ },
+ "nocturnal_v1_reconstruction": {
+  "bobcat_only": [
+   33
+  ],
+  "cat_only": [
+   589,
+   590,
+   591,
+   592,
+   593,
+   594,
+   595
+  ],
+  "cat_both": [
+   50
+  ],
+  "note": "v1 enumerated the integer counts consistent with each rounded percentage; the data give 33, 594 and 51."
+ },
+ "prop_tests": {
+  "C7_cat_only_vs_cat_both": 3.801493750270281e-13,
+  "C1_binary_bobcat_vs_cat_at_solo": 0.0020730945511430255
+ },
+ "C7_cluster_bootstrap": {
+  "gap_pp": 33.82967607105538,
+  "ci_pp": [
+   -3.57171341669483,
+   41.0583124990189
+  ],
+  "p_le0": 0.03075
+ },
+ "C8": {
+  "named_windows": {
+   "cat_only_pct": 45.83333333333333,
+   "cat_both_pct": 64.64646464646465,
+   "fisher_p": 0.0005401323358293676
+  },
+  "mid_day_or_mid_night": {
+   "cat_only_pct": 33.90804597701149,
+   "cat_both_pct": 25.252525252525253,
+   "fisher_p": 0.10880556377784628
+  }
+ },
+ "C9_collar": {
+  "annotation_counts": {
+   "nan": 696,
+   "no collar": 61,
+   "off leash": 27,
+   "collar": 5,
+   "on leash": 4,
+   "carrying prey": 2
+  },
+  "n_annotated": 99,
+  "n_unannotated": 696,
+  "n_collar": 5,
+  "n_no_collar": 61,
+  "collared_share_of_scored": 0.07575757575757576,
+  "n_carrying_prey": 2
+ },
+ "deposit_gaps": {
+  "unique_coordinate_pairs": 1,
+  "coordinate_value": [
+   29.76089,
+   -95.359704
+  ],
+  "note": "every row carries the same Latitude/Longitude -- the downtown reference point, not the camera location. Camera coordinates, per-site trap-days and the land-cover measurements are not in the deposit, so the spatial claims (C4, C5) and Fig 1B remain unreproducible.",
+  "trap_days_in_deposit": false,
+  "landcover_in_deposit": false
+ },
+ "landcover_tests": {
+  "developed:bobcat_only_vs_cat_only": {
+   "mean_difference": -32.0,
+   "se_difference": 7.866842952869517,
+   "welch_t": -4.067705455887823,
+   "welch_df": 8.526697439373297,
+   "p_two_sided": 0.003144799172383313,
+   "ci_low": -49.9477596540922,
+   "ci_high": -14.052240345907798,
+   "cohens_d": -2.0775279141158256,
+   "hedges_g": -2.0119217694595366,
+   "level": 0.95
+  },
+  "forest:bobcat_only_vs_cat_only": {
+   "mean_difference": 15.0,
+   "se_difference": 5.747833851544633,
+   "welch_t": 2.609678774199258,
+   "welch_df": 10.749116607773855,
+   "p_two_sided": 0.024684277394133477,
+   "ci_low": 2.3129846825172287,
+   "ci_high": 27.68701531748277,
+   "cohens_d": 1.1538461538461537,
+   "hedges_g": 1.117408906882591,
+   "level": 0.95
+  }
+ },
+ "multiplicity": {
+  "m": 2,
+  "p": [
+   0.4510774461276936,
+   0.04654767261636918
+  ],
+  "labels": [
+   "C1 single-species U2",
+   "C2 co-occurrence U2"
+  ],
+  "expected_false_positives": 0.1,
+  "bonferroni": [
+   {
+    "p_raw": 0.4510774461276936,
+    "p_adjusted": 0.9021548922553873,
+    "reject": false
+   },
+   {
+    "p_raw": 0.04654767261636918,
+    "p_adjusted": 0.09309534523273837,
+    "reject": false
+   }
+  ],
+  "bh": [
+   {
+    "p_raw": 0.4510774461276936,
+    "p_adjusted": 0.4510774461276936,
+    "reject": false
+   },
+   {
+    "p_raw": 0.04654767261636918,
+    "p_adjusted": 0.09309534523273837,
+    "reject": false
+   }
+  ],
+  "note": "m = 2 is the whole family of inferential tests the paper reports. A p-value distribution cannot be read at m = 2 and none is read here."
+ },
+ "verdict_counts": {
+  "supported-with-caveat": 5,
+  "assumption-dependent": 3,
+  "not-assessable": 2,
+  "supported": 1
+ },
+ "verdict_changes_from_v1": {
+  "C1": {
+   "v1_verdict": "assumption-dependent",
+   "verdict": "assumption-dependent",
+   "v1_status": "confirmed"
+  },
+  "C2": {
+   "v1_verdict": "supported-with-caveat",
+   "verdict": "assumption-dependent",
+   "v1_status": "downgraded"
+  },
+  "C3": {
+   "v1_verdict": "not-assessable",
+   "verdict": "assumption-dependent",
+   "v1_status": "now assessable"
+  },
+  "C4": {
+   "v1_verdict": "supported-with-caveat",
+   "verdict": "supported-with-caveat",
+   "v1_status": "unchanged"
+  },
+  "C5": {
+   "v1_verdict": "not-assessable",
+   "verdict": "not-assessable",
+   "v1_status": "confirmed not assessable"
+  },
+  "C6": {
+   "v1_verdict": "supported-with-caveat",
+   "verdict": "supported-with-caveat",
+   "v1_status": "confirmed, missing half now supplied"
+  },
+  "C7": {
+   "v1_verdict": "supported-with-caveat",
+   "verdict": "supported-with-caveat",
+   "v1_status": "confirmed and strengthened"
+  },
+  "C8": {
+   "v1_verdict": "not-assessable",
+   "verdict": "supported-with-caveat",
+   "v1_status": "now assessable"
+  },
+  "C9": {
+   "v1_verdict": "not-assessable",
+   "verdict": "supported-with-caveat",
+   "v1_status": "partly assessable"
+  },
+  "C10": {
+   "v1_verdict": "not-assessable",
+   "verdict": "not-assessable",
+   "v1_status": "confirmed not assessable"
+  },
+  "C11": {
+   "v1_verdict": "supported",
+   "verdict": "supported",
+   "v1_status": "confirmed against the rows"
+  }
+ },
+ "figures": {
+  "F1_design_map.png": "figures/F1_design_map.png",
+  "F2_raw_behind_claim.png": "figures/F2_raw_behind_claim.png",
+  "F3_assumption_shape.png": "figures/F3_assumption_shape.png",
+  "F4_claim_ledger.png": "figures/F4_claim_ledger.png",
+  "F5_null_distribution.png": "figures/F5_null_distribution.png",
+  "F6_multiplicity.png": "figures/F6_multiplicity.png",
+  "panel_C1.png": "figures/panel_C1.png",
+  "panel_C2.png": "figures/panel_C2.png",
+  "panel_C3.png": "figures/panel_C3.png",
+  "panel_C6_C7_nocturnal.png": "figures/panel_C6_C7_nocturnal.png",
+  "panel_C8.png": "figures/panel_C8.png"
+ }
+}

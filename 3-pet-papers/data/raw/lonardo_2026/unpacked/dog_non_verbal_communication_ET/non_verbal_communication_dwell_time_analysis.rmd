@@ -1,0 +1,622 @@
+---
+title: Non verbal communication dogs - Dwell time analysis
+author: Lucrezia Lonardo
+date: 09/02/2025
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#rm(list=ls())
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(glmmTMB)
+library(ggpubr)
+library(purrr)
+library(cowplot)
+#library(ggpubr)
+library(car)
+library(lme4)
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmm2.r") 
+source("./functions/boot_glmmTMB.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+load("./workspaces/dwell_time_react_IP.RData")
+```
+
+# Import data - reaction IP 
+Duration: the last 13200 ms 
+
+```{r}
+#IA report (from reaction IP - from frame 579 for Zserbo - session 1)
+reaction.ip.orig.data.Zserbo <- read_delim("data/IA_report_IP_from_reaction_frame579.txt", na=".", delim="\t") %>% 
+   filter(RECORDING_SESSION_LABEL=="Zserbo_1")
+
+#IA report (from reaction IP - from frame 580 for all other sessions)
+reaction.ip.orig.data <- read_delim("data/IA_report_IP_from_reaction.txt", na=".", delim="\t") %>% 
+  filter(RECORDING_SESSION_LABEL!="Nala_2",
+         RECORDING_SESSION_LABEL!="Sahibu_2",
+         RECORDING_SESSION_LABEL!="Melody_1", #until here repeated due to dog leaving chinrest too early (before second agent's reaction)
+         RECORDING_SESSION_LABEL!="Zserbo_1") %>% #excluded from here because frame 580 (the one defining the beginning of the reaction IP) was skipped in this video presentation, so we import this trial from frame 579 below
+  rbind(reaction.ip.orig.data.Zserbo) %>% 
+  arrange(RECORDING_SESSION_LABEL) #order rows alphabetically based on RECORDING_SESSION_LABEL
+  levels(as.factor(reaction.ip.orig.data$IA_LABEL))
+
+#demographic data
+demo.data <- read_csv("data/Non_verbal_communication_counterbalancing.csv")%>%
+  mutate(EDF3=fct_recode(as.factor(EDF3), "Georgia_3"="Georgia3", "Mathilda_3"="Mathild3"))%>%
+  separate(EDF3, c("subject", "num"), sep="_") %>% 
+  select(-num) %>% 
+  filter(!is.na(subject))
+ 
+#full data file (IA report_IP_from reaction + demographics)
+reaction.ip.data <- reaction.ip.orig.data %>%
+  select(RECORDING_SESSION_LABEL, IP_LABEL, IA_LABEL,IA_ID, Trial_Index_, condition, trial_type, session_number, trial_number, video_file, DATA_FILE,  IA_AREA, IA_AVERAGE_FIX_PUPIL_SIZE,  IA_DWELL_TIME, "IA_DWELL_TIME_%", IA_FIXATION_COUNT, IA_MAX_FIX_PUPIL_SIZE, INTEREST_AREA_FIXATION_SEQUENCE, TRIAL_DWELL_TIME, TRIAL_FIXATION_COUNT, TRIAL_IA_COUNT, TRIAL_TOTAL_VISITED_IA_COUNT, IA_FIRST_FIXATION_TIME )%>%
+  mutate(RECORDING_SESSION_LABEL=fct_recode(RECORDING_SESSION_LABEL, Georgia_1="Georgia1",Georgia_2="Georgia2", Georgia_3="Georgia3",Georgia_4="Georgia4", Mathilda_1="Mathild1", Mathilda_2="Mathild2", Mathilda_3="Mathild3", Mathilda_4="Mathild4" ))%>%
+  separate(RECORDING_SESSION_LABEL, c("subject", "session.num"), sep = "_") %>% 
+  full_join(demo.data)%>%
+  filter(!is.na(session_number))
+
+#data checks
+summary(reaction.ip.data$TRIAL_DWELL_TIME)
+which(is.na(reaction.ip.data$TRIAL_DWELL_TIME)) 
+levels(as.factor(reaction.ip.data$subject))
+```
+
+###Descriptive stats (reaction IP)
+
+```{r}
+#descriptive statistics
+
+dwell.descr.react <-reaction.ip.data %>%
+  filter(IA_LABEL!="FIXATION_TRIGGER") %>% 
+  group_by(subject, trial_number, condition, trial_type, IA_LABEL, TRIAL_DWELL_TIME) %>% 
+  summarise(ia_dwell_time=IA_DWELL_TIME) %>% 
+   mutate(agent_type = ifelse(grepl("inviting|pointing", IA_LABEL), 
+                             "communicating", 
+                             "reacting")) %>% 
+  mutate(proportion.dwell.time.agents=ia_dwell_time/TRIAL_DWELL_TIME,
+         ia_dwell_time_log = as.numeric(ifelse(ia_dwell_time>0, log(ia_dwell_time), NA))) %>% 
+  ungroup()
+
+
+dwell.descr.react_ind <-reaction.ip.data %>%
+  filter(IA_LABEL!="FIXATION_TRIGGER") %>% 
+   mutate(agent_type = ifelse(grepl("inviting|pointing", IA_LABEL), 
+                             "communicating", 
+                             "reacting")) %>%
+  group_by(subject, agent_type) %>% 
+  summarise(ia_dwell_time_mean=mean(IA_DWELL_TIME),
+            ia_dwell_time_sd=sd(IA_DWELL_TIME))
+
+dwell.descr.react<-dwell.descr.react%>%
+  full_join(dwell.descr.react_ind)%>%
+  mutate(ia_dwell_time_z = (ia_dwell_time - ia_dwell_time_mean)/ia_dwell_time_sd)
+
+
+ggplot(dwell.descr.react, aes(x =trial_type, y = ia_dwell_time_log))+
+  geom_boxplot()+
+  facet_wrap(~agent_type)
+
+hist(dwell.descr.react$ia_dwell_time)
+hist(dwell.descr.react$ia_dwell_time_log)
+
+```
+
+
+```{r}
+dwell.descr.aggr.react<-dwell.descr.react %>% 
+  group_by(condition, trial_type) %>% 
+  summarise(mean_dwell_time_to_agents=mean(ia_dwell_time),
+            median_dwell_time=median(ia_dwell_time),
+            mean_prop_dwell_agents=mean(proportion.dwell.time.agents, na.rm = TRUE),
+            sd_dwell= sd(ia_dwell_time, na.rm = TRUE),
+            se_dwell=sd(ia_dwell_time, na.rm = TRUE)/sqrt(length(ia_dwell_time)))
+
+dwell.descr.part.react<-dwell.descr.react %>% 
+  group_by(condition, subject) %>% 
+  summarise(mean_dwell_time_to_agents=mean(ia_dwell_time, na.rm = TRUE),
+            median_dwell_time=median(ia_dwell_time),
+            mean_prop_dwell_agents=mean(proportion.dwell.time.agents, na.rm = TRUE),
+            sd_dwell= sd(ia_dwell_time, na.rm = TRUE),
+            se_dwell=sd(ia_dwell_time, na.rm = TRUE)/sqrt(length(ia_dwell_time)))
+```
+###Checking the data
+```{r}
+table(dwell.descr.part.react$condition, dwell.descr.part.react$subject) 
+
+xx=table(dwell.descr.part.react$condition, dwell.descr.part.react$subject)
+ncol(xx) 
+
+sum(demo.data$sex=="f") #18 F
+mean(as.numeric(demo.data$age))
+
+xx #each dog should have 1 test trial per condition
+sum(colSums(xx < 1)) #some dogs have missing sessions
+colSums(xx < 1) #1 dog has 3 (CA, CG and GA) and 1 dog has 1 (GA) missing sessions, 
+#but they are still included in the final sample
+
+#in case one wants to exclude these 2 dogs
+# dwell.descr.react.wo.excl.dogs<-dwell.descr.react %>% 
+#   filter(subject!="Lenny" & subject!="Floki")
+```
+###Plot dwell times as a function of trial type (based on aggregated data)
+
+```{r}
+#2 boxplots: one for congruent, one for incongruent conditions
+
+set.seed(121)  # to make jitter reproducible
+
+# Prepare data
+dt_plot_data <- dwell.descr.react %>%
+  group_by(subject, trial_type) %>%
+  summarize(ia_dwell_time = mean(ia_dwell_time), .groups = "drop") %>% 
+  mutate(
+    trial_type = fct_recode(trial_type, "Congruent" = "cong", "Incongruent" = "incong"),
+    x_numeric  = as.numeric(trial_type),
+    x_jittered = x_numeric + runif(n(), -0.15, 0.15)  # manual jitter
+  )
+
+# Plot
+dwell.times.p <- ggplot() +
+
+  # Boxplot stays discrete
+  geom_boxplot(
+    data = dt_plot_data,
+    aes(x = trial_type, y = ia_dwell_time),
+    alpha = 0.5
+  ) +
+
+  # Lines connecting individuals (numeric jitter)
+  geom_line(
+    data = dt_plot_data,
+    aes(x = x_jittered, y = ia_dwell_time, group = subject),
+    alpha = 0.3,
+    linewidth = 0.4,
+    color = "gray50"
+  ) +
+
+  # Points (same numeric jitter)
+  geom_point(
+    data = dt_plot_data,
+    aes(x = x_jittered, y = ia_dwell_time),
+    alpha = 0.5,
+    size = 2
+  ) +
+
+  ylim(0, 6500) +
+  xlab("Trial type") +
+  ylab("Mean dwell time to agents (ms)") +
+  theme_bw() +
+  theme(
+    axis.title.x = element_text(size = 14),
+    axis.title.y = element_text(size = 14),
+    axis.text.x  = element_text(size = 14),
+    axis.text.y  = element_text(size = 14)
+  )
+
+dwell.times.p
+```
+
+### Plot showing also condition, based on trial by trial data
+```{r}
+ggplot(data = dwell.descr.react, 
+       aes(x = interaction(agent_type, trial_type, sep = "\n"), 
+           y = ia_dwell_time)) +
+  geom_boxplot(alpha = 0.5) +  # Boxplot with transparency
+  # geom_jitter(aes(fill = condition),  # Uncomment to add jittered points colored by condition
+  #             position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), 
+  #             alpha = 0.5, shape = 21) +  # Add transparency and shape
+  ylab("Mean dwell time to agents") +
+  xlab("Agent Type\nTrial Type") +  # Label for clarity
+  #ylim(3850, 4500) +  
+  theme_bw()
+
+#t-test to check if dogs looked longer at the reacting than communicating agent
+#aggregate data to get one average value per participant and agent type:
+dwell.descr.react.grouped<-dwell.descr.react %>% 
+  group_by(subject, agent_type) %>% 
+  summarise(mean_dwell_time=mean(ia_dwell_time),
+            sd_dwell_time=sd(ia_dwell_time))
+  
+t.test(dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="reacting"], dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="communicating"], paired=T) #seems so
+
+mean(dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="reacting"]) #5105.282 ms
+mean(dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="communicating"]) #3217.737 ms
+sd(dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="reacting"])
+sd(dwell.descr.react.grouped$mean_dwell_time[dwell.descr.react.grouped$agent_type=="communicating"])
+
+```
+
+
+###Preparing the data for analysis
+
+```{r}
+#bringing the data in the right format
+model.data<-dwell.descr.react  %>%
+  select(-IA_LABEL, -ia_dwell_time) %>% 
+ pivot_wider(names_from=agent_type, values_from = proportion.dwell.time.agents) %>% 
+  rename(prop.dwellt.communicating.agent=communicating, 
+         prop.dwellt.reacting.agent=reacting)
+
+summary(model.data$prop.dwellt.communicating.agent)
+summary(model.data$prop.dwellt.reacting.agent)
+
+#transforming DV to exclude 0 and 1s
+model.data$prop.dwellt.communicating.agent.scaled <-
+  (model.data$prop.dwellt.communicating.agent *
+      (length(model.data$prop.dwellt.communicating.agent) - 1) + 0.5) / length(model.data$prop.dwellt.communicating.agent)
+
+model.data$prop.dwellt.reacting.agent.scaled <-
+  (model.data$prop.dwellt.reacting.agent *
+      (length(model.data$prop.dwellt.reacting.agent) - 1) + 0.5) / length(model.data$prop.dwellt.reacting.agent)
+
+summary(model.data$prop.dwellt.communicating.agent.scaled)
+summary(model.data$prop.dwellt.reacting.agent.scaled)
+
+
+model.data <- data.frame(model.data) %>%
+  mutate(
+    z.trial = as.numeric(scale(as.numeric(trial_number), center = TRUE, scale = TRUE)), #z-transform trial number
+    condition.c = as.numeric(scale(as.numeric(as.factor(condition)), center = TRUE, scale = FALSE)),
+    trial_type.c = as.numeric(scale(as.numeric(as.factor(trial_type)), center = TRUE, scale = FALSE))
+  ) %>% #manually dummy code and center condition and trial_type for random effects part of the model
+#the first as.numeric in this code is needed to drop the [,1] specification add would automatically add to the column names otherwise
+  mutate(condition=as.factor(condition),
+         trial_type=as.factor(trial_type)) #ensure condition and trial_type as treated as factors
+
+hist(model.data$prop.dwellt.communicating.agent.scaled)
+hist(model.data$prop.dwellt.reacting.agent.scaled)
+```
+### Descriptive stats 2 - separated by agents in the reaction IP
+
+```{r}
+dwell.descr.react.each.agent<-model.data %>% 
+  group_by(condition, trial_type) %>% 
+  summarise(mean_prop_dwell_time_communicating=mean(prop.dwellt.communicating.agent),
+            mean_prop_dwell_time_reacting=mean(prop.dwellt.reacting.agent),
+            sd_prop_dwell_comm=sd(prop.dwellt.communicating.agent, na.rm = TRUE),
+            sd_prop_dwell_comm=sd(prop.dwellt.communicating.agent, na.rm = TRUE),
+            median_dwell_timecomm=median(prop.dwellt.communicating.agent),
+            median_dwell_time_react=median(prop.dwellt.reacting.agent),
+            se_prop_dwell_comunicating=sd(prop.dwellt.communicating.agent, na.rm = TRUE)/sqrt(length(prop.dwellt.communicating.agent)),
+            se_prop_dwell_reacting=sd(prop.dwellt.reacting.agent, na.rm = TRUE)/sqrt(length(prop.dwellt.reacting.agent)))
+```
+
+#Beta model (dwell time to both agents) with interaction trial_type(cong/incong)*agent_type(communicating/reacting)
+```{r}
+#to check if dogs look longer to one of the agents or the other depending on the trial type: ia_dwell_time ~ trial_type* agent_type
+
+#prepare the data
+int.model.data<-dwell.descr.react %>% 
+  mutate(z.trial = as.numeric(scale(as.numeric(trial_number), center = TRUE, scale = TRUE)), #z-transform trial number
+         condition=as.factor(condition),
+         trial_type=as.factor(trial_type),#ensure condition and trial_type as treated as factors
+         condition.c1=as.vector(scale(as.numeric(condition==levels(as.factor(condition))[2]), center=TRUE, scale= FALSE)),
+         condition.c2=as.vector(scale(as.numeric(condition==levels(as.factor(condition))[3]), center=TRUE, scale= FALSE)),
+         condition.c3=as.vector(scale(as.numeric(condition==levels(as.factor(condition))[4]), center=TRUE, scale= FALSE)),
+         trial_type.c = as.numeric(scale(as.numeric(as.factor(trial_type)), center = TRUE, scale = FALSE)),
+         agent_type.c = as.numeric(scale(as.numeric(as.factor(agent_type)), center = TRUE, scale = FALSE))
+  ) %>% #manually dummy code and center condition and trial_type for random effects part of the model
+#the first as.numeric in this code is needed to drop the [,1] specification add would automatically add to the column names otherwise
+  mutate(prop.dwell.time.agents.scaled=(proportion.dwell.time.agents *
+      (length(proportion.dwell.time.agents) - 1) + 0.5) / length(proportion.dwell.time.agents)) #scale dependent variable so it does not include 0s and 1s
+```
+
+
+```{r}
+#fit the model
+m1.reactIP.int.trial.type<-glmmTMB( prop.dwell.time.agents.scaled ~ trial_type*agent_type + z.trial + (1+trial_type.c*agent_type.c+z.trial||subject), family=beta_family, data=int.model.data,  control=glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000)))
+#correlation between random effects excluded due to convergence issues
+
+#evaluate results
+round(summary(m1.reactIP.int.trial.type)$coefficients$cond,3)
+drop1(m1.reactIP.int.trial.type, test="Chisq")#interaction not significant so removed 
+
+#fit the model again without interaction but keeping main effects
+m1.reactIP.trial.type<-glmmTMB( prop.dwell.time.agents.scaled ~ trial_type + agent_type + z.trial + (1+trial_type.c + agent_type.c+z.trial||subject), family=beta_family, data=int.model.data,  control=glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000)))
+#correlation between random effects excluded due to convergence issues
+
+#evaluate results
+round(summary(m1.reactIP.trial.type)$coefficients$cond,3) 
+drop1_m1.reactIP.trial.type<-drop1(m1.reactIP.trial.type, test="Chisq")#%>%add_row(Df = rep(NA,1),  .before = 3) #dogs look longer at the reacting than at the communicating agent; trial type not significant
+drop1_m1.reactIP.trial.type
+```
+
+
+```{r}
+# check assumptions
+## overdispersion
+overdisp.test(m1.reactIP.trial.type)
+
+## variance inflation factors
+library(car)
+vif.dwell.trial.type=lm(prop.dwell.time.agents.scaled ~ trial_type + agent_type + z.trial, data=int.model.data)
+vif(vif.dwell.trial.type)
+
+# stability
+m1.reactIP.trial.type.stab=glmmTMB.stab(model.res=m1.reactIP.trial.type, para=F, data=int.model.data)
+round(m1.reactIP.trial.type.stab$summary[1:4, -1], 2)
+m.reactIP.trial.type.stab.plot(round(m1.reactIP.trial.type.stab$summary[, -1], 3))
+
+# confidence intervals
+boot.m1.reactIP.trial.type<-boot.glmmTMB(m1.reactIP.trial.type, data=int.model.data,
+nboots=1000, para=T, n.cores=3, resol=100, level=0.95)
+```
+### output table - prop. dwell time trial type (congr vs incongr)
+
+```{r}
+model_table_dwell_time<- bind_cols(as.data.frame(summary(m1.reactIP.trial.type)$coefficients$cond),
+                             boot.m1.reactIP.trial.type$ci.estimates$fe[1:4,],
+                             drop1_m1.reactIP.trial.type,
+                             m1.reactIP.trial.type.stab$summary[1:4, -1]) %>%
+                             select(Estimate, SE = `Std. Error`, min, max, Chi2 = LRT, df = Df, p_LRT = `Pr(>Chi)`, LowerCI = X2.5., UpperCI = X97.5.) %>%
+  mutate(across(.cols = c( p_LRT), ~ format(round(.x, 3), nsmall=3))) %>%
+  mutate(across(.cols = c(Estimate:df, LowerCI:UpperCI), ~ format(round(.x, 2), nsmall=2))) %>%
+#  mutate(across(Chi2:p_LRT, ~replace_na(.x, "")))%>%
+mutate(p_LRT = replace(p_LRT, p_LRT == "0.000", "<0.001"))
+
+
+write.csv(model_table_dwell_time, file = "saves/results_model_prop_dwell_time_trial_type.csv")
+```
+
+#Beta model (dwell time to both agents) with interaction condition(CA;GA;GG;CG)*agent_type(communicating/reacting)
+
+```{r}
+#do dogs look longer to one of the agents or the other depending on the condition ia_dwell_time ~ condition * agent_type
+#fit the model
+m1.reactIP.int.cond<-glmmTMB( prop.dwell.time.agents.scaled ~ condition*agent_type + z.trial + (1+(condition.c1+condition.c2+condition.c3)*agent_type.c+z.trial||subject), family=beta_family, data=int.model.data,  control=glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000)))
+#correlation between random effects excluded due to convergence issues
+
+#fit reduced model without condition to evaluate its significance as a whole
+m1.reactIP.int.cond.red<-glmmTMB( prop.dwell.time.agents.scaled ~ agent_type + z.trial + (1+(condition.c1+condition.c2+condition.c3)*agent_type.c+z.trial||subject), family=beta_family, data=int.model.data,  control=glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000)))
+
+#evaluate results
+round(as.data.frame(anova(m1.reactIP.int.cond.red, m1.reactIP.int.cond, test="Chisq")), 3) #neither condition nor its interaction with agent type were significant
+
+```
+
+
+
+# Plot transitions
+Transitions between IAs
+```{r}
+# Function to count transitions between 21 and 22
+count_transitions <- function(seq) {
+  # Clean and split the sequence
+  seq_clean <- gsub("\\[|\\]", "", seq)  # Remove brackets
+  seq_clean <- gsub(" ", "", seq_clean)   # Remove spaces
+  seq_split <- unlist(strsplit(seq_clean, ","))  # Split into elements
+
+  # Convert to numeric
+  seq_numeric <- suppressWarnings(as.numeric(seq_split))  # Convert to numeric
+
+  # Remove NAs and keep only 21 and 22 and 23
+  seq_numeric <- seq_numeric[!is.na(seq_numeric)]
+
+  # Initialize variables for counting transitions
+  transitions <- 0
+  previous_value <- NA
+
+  # Loop through the sequence to count transitions between 21 and 22 and 23
+  for (value in seq_numeric) {
+    if (value %in% c(21, 22, 23)) {
+      if (!is.na(previous_value) && previous_value!=20 && previous_value != value) {
+        transitions <- transitions + 1
+      }
+      previous_value <- value
+    }
+  }
+
+  return(transitions)
+}
+
+# Apply the function to count transitions for each row
+reaction.ip.data <- reaction.ip.data %>%
+  mutate(transition_count = map_int(INTEREST_AREA_FIXATION_SEQUENCE, count_transitions))
+
+reaction.ip.data%>%select(subject, Trial_Index_, IA_LABEL, INTEREST_AREA_FIXATION_SEQUENCE, transition_count)%>%
+  filter(IA_LABEL!="FIXATION_TRIGGER")
+```
+
+
+```{r}
+dwell.descr.react_transitions <-reaction.ip.data %>%
+  filter(IA_LABEL!="FIXATION_TRIGGER") %>% 
+  group_by(subject, trial_number, condition, trial_type, IA_LABEL, TRIAL_DWELL_TIME) %>% 
+  summarise(transition_count=transition_count[1]) %>% 
+   mutate(agent_type = ifelse(grepl("inviting|pointing", IA_LABEL), 
+                             "communicating",
+                             "reacting")) %>%
+  ungroup() 
+
+
+dwell.descr.react_transitions_plot <- dwell.descr.react_transitions %>%  
+  group_by(subject, trial_type) %>% 
+  summarise(mean_transition_count=mean(transition_count))
+
+set.seed(123) #to make jitter reproducible
+
+plot_data <- dwell.descr.react_transitions_plot %>%
+  mutate(
+    trial_type = recode_factor(trial_type, "cong" = "Congruent", "incong" = "Incongruent"),
+    x_numeric = as.numeric(trial_type),
+    x_jittered = x_numeric + runif(n(), -0.15, 0.15)   # manually jittered numeric x
+  )
+
+transitions.p <- ggplot() +
+
+  # boxplot is discrete
+  geom_boxplot(
+    data = plot_data,
+    aes(x = trial_type, y = mean_transition_count),
+    width = 0.5
+  ) +
+
+  # lines connecting individual points (use numeric jitter)
+  geom_line(
+    data = plot_data,
+    aes(x = x_jittered, y = mean_transition_count, group = subject),
+    alpha = 0.3,
+    linewidth = 0.4,
+    color = "gray50"
+  ) +
+
+  # points (same numeric jitter)
+  geom_point(
+    data = plot_data,
+    aes(x = x_jittered, y = mean_transition_count),
+    alpha = 0.6,
+    size = 2
+  ) +
+
+  xlab("Trial type") +
+  ylab("Nr. gaze transitions between agents") +
+  theme_bw() +
+  theme(
+    axis.title.x = element_text(size = 14),
+    axis.title.y = element_text(size = 14),
+    axis.text.x  = element_text(size = 14),
+    axis.text.y  = element_text(size = 14)
+  )
+
+
+transitions.p
+
+```
+
+```{r}
+# Save plot
+ggsave(
+  "./plots/gaze_transitions.png",
+  plot = last_plot(),
+  device = NULL,
+ # scale = 0.9,
+  width = 7,
+  height = 6,
+  #units = c("in", "cm", "mm"),
+  dpi = 620,
+  limitsize = TRUE
+)
+```
+
+# Poisson model for transition count
+```{r}
+tr.data <-reaction.ip.data %>%
+  filter(IA_LABEL!="FIXATION_TRIGGER") %>% 
+  group_by(subject, trial_number, condition, trial_type, TRIAL_DWELL_TIME) %>% 
+  summarise(transition_count=transition_count[1]) %>% 
+  ungroup()
+
+# descriptive stats
+hist(tr.data$transition_count)
+range(tr.data$transition_count)
+round(mean(tr.data$transition_count),2)
+round(sd(tr.data$transition_count),2)
+
+str(tr.data)
+
+tr.data<-tr.data %>% 
+  mutate(subject=as.factor(subject),
+         trial_number=as.numeric(trial_number),
+         z.trial= as.vector(scale(trial_number)),
+         condition=as.factor(condition),
+         trial_type=as.factor(trial_type),
+         trial.type.c=scale(trial_number, scale = FALSE))
+```
+
+```{r}
+#random slopes
+xx.fe.re=fe.re.tab(fe.model="transition_count ~ trial_type + trial_number",
+re="(1|subject)", data=tr.data,
+other.vars=c("condition", "TRIAL_DWELL_TIME")) #I will include an offset term for dwell time duration (with longer looking times more transitions are possible)
+
+xx.fe.re$summary[1] #we can include rs of trial number within subject
+
+table(complete.cases(tr.data)) #no missing values
+```
+### fitting the model
+```{r}
+full.tr=glmer(transition_count ~ trial_type + z.trial + offset(log(TRIAL_DWELL_TIME)) + #offset term
+(1 +  z.trial|subject),
+family=poisson, data=tr.data)
+```
+### assumptions
+```{r}
+# overdispersion
+overdisp.test(full.tr)
+
+# zero-inflation
+all.zeros=unlist(lapply(X=1:1000, FUN=function(x){
+sum(rpois(n=length(fitted(full.tr)), lambda=fitted(full.tr))==0)
+}))
+plot(table(all.zeros), xlab="number zeroes", ylab="frequency")
+points(x=sum(tr.data$transition_count==0), y=0, pch=4, lwd=2, col="red") #the nr. of 0s is not larger than expected under a Poisson distribution given the fitted model
+
+# BLUPs
+ranef.diagn.plot(full.tr)
+
+#collinearity
+vif(full.tr)
+```
+### Model stability
+```{r}
+full.stab=glmm.model.stab(model.res=full.tr, data=tr.data)
+# check warnings 
+table(full.stab$detailed$lme4.warnings)
+table(full.stab$detailed$opt.warnings)
+
+full.tr.stab=round(full.stab$summary[1:3, -1], 2)
+m.stab.plot(full.stab$summary[1:3, -1])
+```
+### Model output
+```{r}
+# individual fixed effects
+tests.tr=as.data.frame(drop1(full.tr, test="Chisq"))
+tests.tr
+
+# coefficients
+round(summary(full.tr)$coefficients,2)
+```
+
+### Confidence intervals
+```{r}
+full.boot=boot.glmm.pred(model.res=full.tr, excl.warnings=F,
+nboots=1000, para=F, resol=1000, level=0.95, use=NULL)
+
+round(full.boot$ci.estimates,2)
+```
+### Output table - nr. transitions depending on trial type (congr vs incongr)
+
+```{r}
+model_table_nr_transitions<- bind_cols(as.data.frame(summary(full.tr)$coefficients),
+                             full.boot$ci.estimates,
+                             tests.tr,
+                             full.tr.stab) %>%
+                             select(Estimate, SE = `Std. Error`, min, max, Chi2 = LRT, Df = `npar`, p_LRT = `Pr(Chi)`, LowerCI = X2.5., UpperCI = X97.5.) %>%
+  mutate(across(.cols = c( p_LRT), ~ format(round(.x, 3), nsmall=3))) %>%
+  mutate(across(.cols = c(Estimate:Df, LowerCI:UpperCI), ~ format(round(.x, 2), nsmall=2))) %>%
+#  mutate(across(Chi2:p_LRT, ~replace_na(.x, "")))%>%
+mutate(p_LRT = replace(p_LRT, p_LRT == "0.000", "<0.001"))
+
+
+write.csv(model_table_nr_transitions, file = "saves/results_model_nr_transitions.csv")
+```
+# Plot with dwell times and gaze transitions
+
+```{r}
+library(patchwork)
+
+transition_dwell_times_plot <- (
+  dwell.times.p + plot_spacer() + transitions.p +
+  plot_annotation(tag_levels = "A") &
+  theme(plot.tag = element_text(size = 18))
+) + plot_layout(widths = c(1, 0.05, 1))
+
+transition_dwell_times_plot
+ggsave("./plots/transition_dwell_times_plot.png", transition_dwell_times_plot, width = 9, height = 4.1, dpi = 620)
+```
+

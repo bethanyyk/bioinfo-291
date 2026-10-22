@@ -1,0 +1,20 @@
+claim_id,statistic,data,authors_printed,recomputed,authors_p,recomputed_p,agree
+C3,X-squared,contingency_table_initiators,124.29,124.286,< 2.2e-16,1.027e-27,yes
+C4,X-squared,contingency_table_cat_owner_initiators,115.23,115.232,< 2.2e-16,7.001e-27,yes
+C5,X-squared,contingency_table_cat_equal_initiators,44.642,44.642,= 2.366e-11,2.366e-11,yes
+C6,X-squared,contingency_table_owner_equal_initiators,17.652,17.6522,= 2.652e-05,2.652e-05,yes
+C7,X-squared,contingency_table_enders,329.08,329.076,< 2.2e-16,3.483e-72,yes
+C8,X-squared,contingency_table_cat_owner_enders,197.54,197.54,< 2.2e-16,7.191e-45,yes
+C9,X-squared,contingency_table_cat_equal_enders,217.59,217.589,< 2.2e-16,3.035e-49,yes
+C10,X-squared,contingency_table_owner_equal_enders,0.60334,0.60334,= 0.4373,0.4373,yes
+C11,X-squared,contingency_table_sex,5.5459,5.54593,= 0.01852,0.01852,yes
+C12,Kruskal-Wallis chi-squared,times_object_retrieved_recent by initiate_fetch,13.976,13.9761,= 0.0009229,0.0009229,yes
+C14,Kruskal-Wallis chi-squared,times_object_retrieved_recent by end_fetch,110.55,110.546,< 2.2e-16,9.889e-25,yes
+C16,Kruskal-Wallis chi-squared,times_monthly_fetch_sessions by initiate_fetch,52.947,52.9472,= 3.182e-12,3.182e-12,yes
+C17,Kruskal-Wallis chi-squared,times_monthly_fetch_sessions by end_fetch,62.972,62.972,= 2.117e-14,2.117e-14,yes
+C13,pairwise Wilcoxon (Bonferroni),owner vs cat,-,-,0.00934,0.00934,yes
+C15,pairwise Wilcoxon (Bonferroni),owner vs cat,-,-,< 2e-16,1.06e-23,yes
+C18,X-squared,contingency_sex_initiation,1.8163,1.81631,= 0.4033,0.4033,yes
+C19,X-squared,contingency_sex_end,1.9667,1.96669,= 0.3741,0.3741,yes
+C20,W (Wilcoxon rank sum),times_object_retrieved_recent by cat_sex,156213,156213,= 0.09177,0.09177,yes
+C21,W (Wilcoxon rank sum),times_monthly_fetch_sessions by cat_sex,162892,162892,= 0.6226,0.6226,yes

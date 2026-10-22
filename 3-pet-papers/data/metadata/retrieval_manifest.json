@@ -1,0 +1,228 @@
+{
+  "retrieved_utc": "2026-10-15T07:27:46.883348Z",
+  "files_on_disk": [
+    {
+      "path": "data/raw/alavinaini_2026/paper_fulltext.txt",
+      "bytes": 20256,
+      "sha256": "68b131f94be3df54"
+    },
+    {
+      "path": "data/raw/alavinaini_2026/PMC13310411.xml",
+      "bytes": 46504,
+      "sha256": "2099191e44068feb"
+    },
+    {
+      "path": "data/raw/forman_2023/paper.pdf",
+      "bytes": 1825269,
+      "sha256": "381242211240b103"
+    },
+    {
+      "path": "data/raw/forman_2023/paper_fulltext.txt",
+      "bytes": 60156,
+      "sha256": "e08b1b2a7444df9d"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM1_ESM.docx",
+      "bytes": 3410781,
+      "sha256": "40f72b91c944eb27"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM2_ESM.docx",
+      "bytes": 297507,
+      "sha256": "50debb33b329beba"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM3_ESM.csv",
+      "bytes": 808255,
+      "sha256": "c9451c33a9675e7b"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM4_ESM.pdf",
+      "bytes": 320145,
+      "sha256": "7d2c8ed8d44f99df"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM5_ESM.docx",
+      "bytes": 14367,
+      "sha256": "0de8ebe18085ee27"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM6_ESM.xlsx",
+      "bytes": 5762304,
+      "sha256": "d8e007976ed2557c"
+    },
+    {
+      "path": "data/raw/forman_2023/supplementary/41598_2023_47409_MOESM7_ESM.docx",
+      "bytes": 16173,
+      "sha256": "dbd0b74775c182dd"
+    },
+    {
+      "path": "data/raw/goold_2016/DetectionDog_GGM_AssociationMatrix.csv",
+      "bytes": 2394,
+      "sha256": "5fc8a6354a65a3db"
+    },
+    {
+      "path": "data/raw/goold_2016/finalMIdata_averaged_rounded.csv",
+      "bytes": 11017,
+      "sha256": "d4d76f3822830936"
+    },
+    {
+      "path": "data/raw/goold_2016/paper_fulltext.txt",
+      "bytes": 64051,
+      "sha256": "b78d068af9c3f100"
+    },
+    {
+      "path": "data/raw/goold_2016/PatrolDog_GGM_AssociationMatrix.csv",
+      "bytes": 2090,
+      "sha256": "73d603fa6a7313e4"
+    },
+    {
+      "path": "data/raw/goold_2016/rawData.csv",
+      "bytes": 17956,
+      "sha256": "4713c991b05722f0"
+    },
+    {
+      "path": "data/raw/goold_2016/Rscript.R",
+      "bytes": 55177,
+      "sha256": "9a0af44356647278"
+    },
+    {
+      "path": "data/raw/goold_2016/Supplementary_Material_Revised.pdf",
+      "bytes": 6651521,
+      "sha256": "7b8a45d7fa54405e"
+    },
+    {
+      "path": "data/raw/lonardo_2026/data_and_code_dog_non_verbal_communication.zip",
+      "bytes": 562952,
+      "sha256": "8cf71dcc8a29a6f4"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/dog_nonverbal_communication_samplereport_ds.parquet",
+      "bytes": 136818,
+      "sha256": "f046f8539c420125"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/dog_nonverbal_communication_samplereport_ds_ALL_DATA.parquet",
+      "bytes": 145918,
+      "sha256": "af83a389a31c34b0"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/IA_report_IP_from_reaction.txt",
+      "bytes": 458219,
+      "sha256": "8e0615cf2227711f"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/IA_report_IP_from_reaction_frame579.txt",
+      "bytes": 458177,
+      "sha256": "4357ed482bbd456d"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/IA_report_new_video_IP.txt",
+      "bytes": 492960,
+      "sha256": "534052ba99974182"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/data/Non_verbal_communication_counterbalancing.csv",
+      "bytes": 7453,
+      "sha256": "472d4e27b5acff5a"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/dog_non_verbal_communication_ET.Rproj",
+      "bytes": 218,
+      "sha256": "aa1bb6b4e0ed0325"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/boot_glmm.r",
+      "bytes": 38093,
+      "sha256": "15f66f1d58a14128"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/boot_glmm2.r",
+      "bytes": 22526,
+      "sha256": "127a215a7705ade9"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/boot_glmmTMB.r",
+      "bytes": 15840,
+      "sha256": "a04e048595e47016"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/diagnostic_fcns.r",
+      "bytes": 37321,
+      "sha256": "195d349edf7bc391"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/drop1_para.r",
+      "bytes": 8336,
+      "sha256": "cfd11ecd7f831aff"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/drop1_para_glmmtmb.r",
+      "bytes": 15764,
+      "sha256": "7b31d70c6c9a1ce9"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/extract_ranef_gmmTMB.r",
+      "bytes": 1917,
+      "sha256": "949ac0ad0cd61718"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/glmm_stability.r",
+      "bytes": 8842,
+      "sha256": "bb9794ea884755fd"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/functions/glmmTMB_stability.r",
+      "bytes": 9887,
+      "sha256": "5148ba0ea681da8a"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/LICENSE",
+      "bytes": 1086,
+      "sha256": "600cb3873d731338"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/non_verbal_communication_dwell_time_analysis.rmd",
+      "bytes": 25221,
+      "sha256": "dc40a485f6e26288"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/non_verbal_communication_pupil_size_analysis.Rmd",
+      "bytes": 9129,
+      "sha256": "5edae5358442ff27"
+    },
+    {
+      "path": "data/raw/lonardo_2026/unpacked/dog_non_verbal_communication_ET/README.md",
+      "bytes": 312,
+      "sha256": "e5b879240c63aa13"
+    },
+    {
+      "path": "data/raw/wang_horowitz_2026/paper_fulltext.txt",
+      "bytes": 87062,
+      "sha256": "eda57f3291c4e127"
+    }
+  ],
+  "known_gaps": [
+    {
+      "path": "data/raw/wang_horowitz_2026/[NOT RETRIEVED]",
+      "bytes": 0,
+      "sha256": null,
+      "source": "Dryad doi:10.5061/dryad.bzkh189pt",
+      "note": "metadata reachable; file downloads return HTTP 401/403 (Cloudflare bot gate). Not retrieved. Review is text-only."
+    },
+    {
+      "path": "data/raw/alavinaini_2026/[NO DEPOSIT]",
+      "bytes": 0,
+      "sha256": null,
+      "source": "none",
+      "note": "paper contains no data availability statement and no deposit was found. Review is text-only."
+    },
+    {
+      "path": "data/raw/lonardo_2026/[NO FULL TEXT]",
+      "bytes": 0,
+      "sha256": null,
+      "source": "Elsevier (paywalled)",
+      "note": "doi 10.1016/j.cognition.2026.106586 has no PMCID and no OA copy; only the abstract was retrievable. Data and analysis code ARE available (Zenodo)."
+    }
+  ]
+}

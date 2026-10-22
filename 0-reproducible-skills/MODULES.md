@@ -204,6 +204,45 @@ logger.save()
 
 ---
 
+## `statistical-review/`
+
+**What it does:** Evaluates the statistical claims of a paper against its own raw data.
+
+**Inputs:** a paper PDF and the raw data behind its figures.
+**Output:** a figure-led review report with one verdict per claim.
+
+**Files:** a loadable `SKILL.md`, the six-stage `REVIEW_PROTOCOL.md`, `REPORT_FORMAT.md`,
+`kernel.py` (the workflow in a few calls), `checks/` (one checklist per stage),
+`templates/`, `utilities/` (the computational core), `examples/run_demo_review.py`,
+and `tests/` (55 tests).
+
+**Use it when:** reviewing a manuscript, auditing a published analysis, or checking your
+own paper before submission.
+
+**Example:**
+```python
+from kernel import load_paper, load_data, audit_reported_statistics, review_claim, build_review_figures
+
+paper = load_paper("data/raw/manuscript.pdf")
+audit = audit_reported_statistics(paper["inventory"])   # does the paper's own arithmetic hold?
+
+data = load_data("data/raw/figure2_source.csv")
+c1 = review_claim(data, value_col="volume", group_col="arm", unit_col="mouse",
+                  claim_id="C1", p_reported=0.033, figure_path="figures/panel_C1.png")
+c1["verdict"], c1["reasons"]      # ('underpowered-resolution', ['the design's floor is ...'])
+
+build_review_figures(data, "mouse", "arm", "volume", claims=[c1], audit=audit, outdir="figures")
+```
+
+**Key design:** three separate questions per claim — is the number right, is the method
+right for the design, could the number have been anything else. Every p-value is reported
+alongside the smallest p-value its design could have produced; the parametric, rank-based
+and permutation routes are always reported together rather than selected between; and no
+function returns "assumptions met" — shape diagnostics are descriptive, never a pass/fail
+gate. Builds its figures on `data-visualization/`.
+
+---
+
 ## Quick Reference
 
 | Folder | Purpose | Copy into your project? |
@@ -214,6 +253,8 @@ logger.save()
 | `utilities/` | Data validation and checksums | Yes — copy `data_validation.py` to `src/` |
 | `environment/` | Environment spec and pinning guide | Mostly reference — copy `.yml` template to `environment/` |
 | `documentation/` | Design and findings templates | Copy templates to project root, fill them in |
+| `data-visualization/` | Figure principles by question type, plus utilities | Copy `utilities/` to `src/`; read the PRINCIPLE.md files in place |
+| `statistical-review/` | Review a paper's statistical claims against its raw data | Copy the whole directory, or run it in place from `0-reproducible-skills/` |
 
 ---
 

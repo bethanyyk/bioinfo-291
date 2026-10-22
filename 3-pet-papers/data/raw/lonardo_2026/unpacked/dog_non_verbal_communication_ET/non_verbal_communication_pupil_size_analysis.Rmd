@@ -1,0 +1,305 @@
+---
+title: "Pupil size analysis"
+author: "Lucrezia Lonardo"
+date: "13/06/2025"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#rm(list = ls())
+library(tidyverse)
+#library(lme4)
+#library(naniar)
+library(gazer)
+library(zoo)
+library(arrow)
+library(plotfunctions)
+library(mgcv)
+library(itsadug)
+#library(readr)
+
+#load("./workspaces/non_verbal_communication_pupil_size.RData")
+```
+# Fitting GAMM
+
+```{r}
+dat<-read_parquet("data/dog_nonverbal_communication_samplereport_ds.parquet")
+dat3 <- dat %>%
+  filter(!(subject %in% c("Ace", "Filou", "Floki", "George", "Ignaz", "Jimi", "Lenny", "Sahibu", "Sheila", "Timo", "Zserbo"))) %>% # include only dogs with all 4 valid trials (1 per condition)
+droplevels()
+
+levels(as.factor(dat3$session_number))
+table(dat3$subject, dat3$session_number)
+length(unique(levels(as.factor(dat3$subject)))) #28 subjects left
+summary(dat3$time)
+```
+
+
+```{r}
+# Defining events (time series):
+dat3$Event <- interaction(dat3$subject, dat3$condition, dat3$session_number, drop=TRUE)
+levels(dat3$Event)
+
+library(mgcv)
+gamm.full2 <- bam(pupil_base ~ trial_type + session_number + 
+           s(time, k=20) + 
+           s(time, by= trial_type, k=20) +
+             #argument by: fit different smooths for different levels of a categorical variables (factor-smooth interaction)
+           s(Xgaze_RIGHT, Ygaze_RIGHT) +
+           s(time, subject, bs='fs', m=1)+
+           s(time, Event, bs='fs', m=1), 
+           #bs="fs" is for random wiggly curves: produces a smooth curve for each level of a single factor, treating the curves as entirely random
+           data=dat3, discrete=TRUE, nthreads=40, method="ML") 
+
+summary(gamm.full2)
+
+library(mgcViz)
+gam.check(gamm.full2)
+
+
+acf(resid(gamm.full2), bty='n', main="ACF residuals model1")
+acf(resid(gamm.full2), plot=FALSE)
+```
+
+
+```{r}
+#save gam_check
+#remotes::install_github("m-clark/visibly")
+library(visibly)
+png("./plots/pupil_gamm.full_gam_check.png", units="cm", res=600, width=24, height = 18)
+gam_check_plot<-plot_gam_check(gamm.full2, scatter=TRUE)
+print(gam_check_plot)
+dev.off()
+
+png("plots/pupil_gamm.full_acf_plot.png", units="cm", res=600, width=12, height = 12)
+acf_plot<-acf(resid(gamm.full2), bty='n', main="")
+print(acf_plot)
+dev.off()
+```
+
+
+* difference curve
+```{r}
+#save plot
+
+png("plots/pupil_difference_curve_gamm.full_trial_type.png", width=6, height=4,  units = "in", res = 600)
+  plot_diff(gamm.full2, view="time",
+            comp=list(trial_type=c("cong","incong")),
+            rm.ranef=TRUE, las=1,
+            xlab="Video time (ms)",
+            ylab="Est. difference in pupil size",
+            col="black", hide.label=TRUE,
+            plot=TRUE, main="Difference Congruent–Incongruent",
+            xaxt="n")
+  axis(1, at=c(1000, 2000, 3000, 4000, 50000),
+       labels=c("6000", "7000", "8000", "9000", "10000"))
+dev.off()
+
+```
+
+
+* plotting partial effects
+```{r}
+pdf("plots/pupil_gamm.full_partial_effects.pdf", width=10, height = 8)
+plot(gamm.full2, pages = 1, all.terms = TRUE, residuals = TRUE, rug=FALSE, pch = 1, cex = 0.5, seWithMean = TRUE, shade = TRUE, shade.col = "lightblue")
+dev.off()
+
+library(mgcViz)
+b <- getViz(gamm.full2)
+png("plots/pupil_gamm.full_partial_effect2.png", units="cm", res=600, width=24, height = 16)
+p1<-plot(b, allTerms = T)+theme_classic() + labs(title = NULL)
+print(p1, pages = 1 )
+dev.off()
+
+```
+
+* Summed effects
+```{r}
+plot_smooth(gamm.full2, view="time", cond=list(trial_type="cong"), rm.ranef=TRUE,
+  v0=0, col="black", lwd=2, lty=6, rug=FALSE, se=1.96,
+  main="Estimated effects", ylab="Pupil (baselined)", las=1)
+
+plot_smooth(gamm.full2, view="time", cond=list(trial_type="incong"), rm.ranef=TRUE,
+  v0=0, col="black", lwd=2, lty=6, rug=FALSE, se=1.96,
+  main="Estimated effects", ylab="Pupil (baselined)", las=1)
+
+```
+
+```{r}
+tmp <- gamm.full2$model
+plot_modelfit(gamm.full2, view="time", event=tmp$Event,n = 2)
+```
+
+
+## Aggregate data
+
+```{r}
+dat3_agg <- dat3 %>%
+  group_by(subject, trial_type) %>%
+  summarise(mean_pup = mean(pupil_base))
+
+dat3_agg  %>%
+  group_by( trial_type) %>%
+  summarise(mean_pupil_size = mean(mean_pup), se = sd(mean_pup)/sqrt(length(mean_pup)))
+```
+
+
+```{r}
+# Convert to wide format
+dat3_wide <- dat3_agg %>%
+  pivot_wider(
+    names_from = trial_type, 
+    values_from = mean_pup
+  )
+
+# Paired t-test
+t_test_result <- t.test(
+  dat3_wide$cong,
+  dat3_wide$incong,
+  paired = TRUE
+)
+
+```
+Assumptions violated? --> Yes
+```{r}
+# Create a difference score
+dat3_wide <- dat3_wide %>%
+  mutate(diff_score = cong - incong)  
+
+## 1. Shapiro-Wilk normality test on difference scores
+shapiro_test <- shapiro.test(dat3_wide$diff_score)
+print(shapiro_test)
+```
+
+##Wilcoxon test
+```{r}
+library(exactRankTests)
+better.wilc=function(var1, var2){
+  #running the test:
+  wr=wilcox.exact(var1, var2,
+    exact=T, paired=T)
+  N=sum(var1!=var2)#determine sample size
+  wT=wr$statistic
+  wT=max(c(wT, N*(N+1)/2-wT))
+  return(data.frame(T.plus=wT,
+    N=N, number.ties=sum(var1==var2), P=wr$p.value))
+}
+better.wilc(dat3_wide$cong,   dat3_wide$incong)
+```
+
+
+#GAMM with all dogs included, even those without a full dataset and even trials with gaze >70% were included
+```{r}
+# Defining events (time series):
+dat2<-read_parquet("data/dog_nonverbal_communication_samplereport_ds_ALL_DATA.parquet")
+dat2$Event <- interaction(dat2$subject, dat2$condition, dat2$session_number, drop=TRUE)
+levels(dat2$Event)
+
+library(mgcv)
+gamm.full <- bam(pupil_base ~ trial_type + session_number + 
+           s(time, k=20) + 
+           s(time, by= trial_type, k=20) +
+             #argument by: fit different smooths for different levels of a categorical variables (factor-smooth interaction)
+           s(Xgaze_RIGHT, Ygaze_RIGHT) +
+           s(time, subject, bs='fs', m=1) +
+           s(time, Event, bs='fs', m=1), 
+           #bs="fs" is for random wiggly curves: produces a smooth curve for each level of a single factor, treating the curves as entirely random
+           data=dat2, discrete=TRUE, nthreads=40, method="ML") 
+
+summary(gamm.full)
+
+library(mgcViz)
+gam.check(gamm.full)
+
+
+acf(resid(gamm.full), bty='n', main="ACF residuals model1")
+acf(resid(gamm.full), plot=FALSE)
+```
+
+
+```{r}
+#save gam_check
+#remotes::install_github("m-clark/visibly")
+library(visibly)
+png("./plots/pupil_gamm.full_gam_check_N39.png", units="cm", res=600, width=24, height = 18)
+gam_check_plot<-plot_gam_check(gamm.full, scatter=TRUE)
+print(gam_check_plot)
+dev.off()
+
+png("plots/pupil_gamm.full_acf_plot_N39.png", units="cm", res=600, width=12, height = 12)
+acf_plot<-acf(resid(gamm.full), bty='n', main="")
+print(acf_plot)
+dev.off()
+```
+
+
+* difference curve
+```{r}
+#save data
+plot_diff_gamm.full<-plot_diff(gamm.full, view="time", 
+           comp=list(trial_type=c("cong", "incong")), rm.ranef=TRUE, 
+          las=1, ylab="Est. difference in pupil size", 
+          col="black", hide.label = TRUE, plot = FALSE)
+plot_diff_gamm.full$time <- plot_diff_gamm.full$time + 5000 #add offset to dataset values to make them correspond to video times
+
+plot_diff_gamm.full<-ggplot(data=plot_diff_gamm.full, aes(x=time, y=est))+
+  geom_hline(yintercept = 0)+
+  geom_path(lty=2)+
+  geom_ribbon(aes(x=time, ymin=est-CI, ymax=est+CI), alpha=0.2)+
+  theme_bw()+
+  scale_x_continuous(name="Video time (ms)", breaks=c(6000, 7000, 8000, 9000, 10000))+ ylab("Est. difference in pupil size")+ggtitle("Congruent - Incongruent (N=39)")+
+    theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank())
+
+plot_diff_gamm.full
+
+ggsave(plot_diff_gamm.full, filename = "plots/pupil_difference_curve_gamm.full_trial_type_N39.png", width=8, height=6, scale=0.6, dpi=600)
+
+```
+
+* plotting partial effects
+```{r}
+pdf("plots/pupil_gamm.full_partial_effects_N39.pdf", width=10, height = 8)
+plot(gamm.full, pages = 1, all.terms = TRUE, residuals = TRUE, rug=FALSE, pch = 1, cex = 0.5, seWithMean = TRUE, shade = TRUE, shade.col = "lightblue")
+dev.off()
+
+library(mgcViz)
+b <- getViz(gamm.full)
+png("plots/pupil_gamm.full_partial_effects2_N39.png", units="cm", res=600, width=24, height = 16)
+p1<-plot(b, allTerms = T)+theme_classic() + labs(title = NULL)
+print(p1, pages = 1 )
+dev.off()
+
+```
+* Summed effects
+```{r}
+plot_smooth(gamm.full, view="time", cond=list(trial_type="cong"), rm.ranef=TRUE,
+  v0=0, col="black", lwd=2, lty=6, rug=FALSE, se=1.96,
+  main="Estimated effects (N=39)", ylab="Pupil (baselined)", las=1)
+
+plot_smooth(gamm.full, view="time", cond=list(trial_type="incong"), rm.ranef=TRUE,
+  v0=0, col="black", lwd=2, lty=6, rug=FALSE, se=1.96,
+  main="Estimated effects (N=39)", ylab="Pupil (baselined)", las=1)
+
+```
+
+```{r}
+tmp <- gamm.full$model
+plot_modelfit(gamm.full, view="time", event=tmp$Event,n = 2)
+```
+
+
+
+
+
+
+
+
+

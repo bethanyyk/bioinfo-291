@@ -1,0 +1,142 @@
+{
+  "verdict_counts": {
+    "supported": 1,
+    "supported-with-caveat": 4,
+    "assumption-dependent": 0,
+    "underpowered-resolution": 0,
+    "not-reproducible": 0,
+    "contradicted": 0,
+    "not-assessable": 2
+  },
+  "figures": [
+    "F1_design_map.png",
+    "F2_raw_behind_claim.png",
+    "F3_assumption_shape.png",
+    "F4_claim_ledger.png",
+    "F5_null_distribution.png",
+    "F6_multiplicity.png",
+    "F7_pupil_timecourse.png",
+    "panel_C1.png",
+    "panel_C2.png",
+    "panel_C3.png",
+    "panel_C5.png"
+  ],
+  "n_claims": 7,
+  "nbook": {
+    "n_rows_cb": 45,
+    "n_named": 39,
+    "n_unique_dogid": 30,
+    "n_blank_rows": 6,
+    "n_subject_parquet_ds": 39,
+    "n_subject_parquet_all": 39,
+    "n_primary_pupil": 28,
+    "dogid_is_order_slot": true,
+    "n_shared_dogid": 7,
+    "demo_join_failures": [
+      "Floki",
+      "Knopfi"
+    ],
+    "n_female": 18,
+    "n_breeds": 13
+  },
+  "cluster_p_28": 0.019598040195980403,
+  "cluster_p_all": 1.0,
+  "cluster_window": [
+    7800.0,
+    8700.0
+  ],
+  "key_effects": {
+    "pupil, primary complete cases (dat3)": {
+      "n": 28,
+      "effect": 141.57525593429435,
+      "ci": [
+        51.64080951346273,
+        282.58011009828704
+      ],
+      "p_perm": 0.011898810118988102
+    },
+    "pupil, ds file, no exclusion": {
+      "n": 37,
+      "effect": 81.29719196081906,
+      "ci": [
+        -32.59876348203176,
+        199.7575198838893
+      ],
+      "p_perm": 0.1865813418658134
+    },
+    "pupil, ALL_DATA (abstract's N = 39)": {
+      "n": 38,
+      "effect": 55.582934112829875,
+      "ci": [
+        -107.61046692997257,
+        176.24338176315035
+      ],
+      "p_perm": 0.4587541245875412
+    },
+    "looking time to agents (ms)": {
+      "n": 38,
+      "effect": -3.7960526315789473,
+      "ci": [
+        -458.71625555724023,
+        418.8072909653356
+      ],
+      "p_perm": 0.9913008699130087
+    },
+    "looking time, proportion of trial": {
+      "n": 38,
+      "effect": -0.007461811798459742,
+      "ci": [
+        -0.04141625908637168,
+        0.02638272989577816
+      ],
+      "p_perm": 0.6779322067793221
+    },
+    "gaze transitions per trial": {
+      "n": 38,
+      "effect": 0.06578947368421052,
+      "ci": [
+        -0.3815789473684211,
+        0.4605263157894737
+      ],
+      "p_perm": 0.771022897710229
+    },
+    "pupil, approach response (GA vs CA)": {
+      "n": 28,
+      "effect": 103.41652407761589,
+      "ci": [
+        -46.48948925307249,
+        264.48072697377324
+      ],
+      "p_perm": 0.20997900209979
+    },
+    "pupil, leaving response (CG vs GG)": {
+      "n": 28,
+      "effect": 179.73398779097278,
+      "ci": [
+        34.52774656664556,
+        366.30733328597717
+      ],
+      "p_perm": 0.0402959704029597
+    }
+  },
+  "interaction": {
+    "n": 28,
+    "effect": -76.3174637133569,
+    "ci": [
+      -285.67096674324125,
+      177.8135371660328
+    ],
+    "p_perm": 0.5237476252374762
+  },
+  "recount": {
+    "m_tests": 9,
+    "alpha": 0.05,
+    "expected_false_positives_uncorrected": 0.45,
+    "note": "9 tests at alpha=0.05 yield about 0.5 significant results by chance alone. 3 uncorrected hits become 0 under BH and 0 under Bonferroni."
+  },
+  "repro_agent": {
+    "reacting": 5105.282051282052,
+    "communicating": 3217.7371794871797
+  },
+  "m_tests": 18
+}

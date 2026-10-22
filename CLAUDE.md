@@ -1,8 +1,5 @@
 # bioinfo-291 — repository conventions
 
-Single-cell analysis of melanoma tumour biopsies taken before and during immune
-checkpoint blockade (GEO **GSE120575**, Sade-Feldman et al., *Cell* 2018).
-
 ## Directory contract
 
 Every directory has one job. Nothing is written outside this contract.
@@ -39,13 +36,6 @@ Every directory has one job. Nothing is written outside this contract.
   adjusted value. No table reports a p-value without the correction method named in its
   column header.
 
-## Memory budget
-
-This analysis is developed on a machine with roughly 2–3 GB of usable RAM. The GEO
-expression matrix is a ~55k gene x 16k cell dense text file and **must not** be read
-with a plain `pandas.read_csv`. `src/icb_scrna/ingest.py` streams it in row chunks and
-converts to sparse `float32` on the fly. Keep that property if you touch the loader.
-
 ## Running
 
 ```bash
@@ -81,9 +71,3 @@ PYTHONPATH=/path/to/bioinfo-291/src pytest /some/other/dir/ptests -q
 ```
 
 On an unrestricted filesystem a plain `pytest` from the repository root works.
-
-## Provenance
-
-Raw sequencing reads for GSE120575 are controlled-access (dbGaP phs001680.v1.p1).
-This project uses only the public processed TPM matrix and its sample annotation,
-both downloaded from the GEO series supplementary files.

@@ -1,0 +1,4 @@
+correction,controls,n_significant,threshold_on_raw_p
+none,nothing (per-test error rate),14,0.05
+Bonferroni,FWER: probability of any false positive,2,0.0019230769230769232
+Benjamini-Hochberg,FDR: expected fraction of false calls <= 0.05,2,0.001

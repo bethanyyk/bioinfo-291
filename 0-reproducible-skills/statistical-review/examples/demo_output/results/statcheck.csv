@@ -1,0 +1,5 @@
+claim_id,page,sentence,stat_type,stat_value,df1,df2,p_relation,p_reported,tail_hint,p_recomputed,consistent,decision_error,note
+TES001,1,"Treatment with compound X reduced tumour volume relative to vehicle control (t(94) = 3.41, p = 0.001).",t,3.41,94.0,,=,0.001,2,0.0009587423844852922,True,False,
+TES002,1,"Tumour volume was lower in treated animals than in vehicle controls (t(94) = 3.41, p = 0.001).",t,3.41,94.0,,=,0.001,2,0.0009587423844852922,True,False,
+TES003,1,"Marker abundance correlated with final volume (r(94) = 0.26, p = 0.011).",r,0.26,94.0,,=,0.011,2,0.010519837005564848,True,False,
+TES004,1,"Counts of responding animals differed between arms (chi2(1) = 2.10, p = 0.012).",chi2,2.1,1.0,,=,0.012,2,0.14729913862267172,False,True,reported p does not follow from reported statistic and df

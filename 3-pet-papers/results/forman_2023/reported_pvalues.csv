@@ -1,0 +1,29 @@
+label,p_reported,is_bound
+sex ratio 617 vs 537,0.018,False
+initiation omnibus,0.001,True
+initiation cat vs owner,0.001,True
+initiation cat vs equal,0.001,True
+initiation owner vs equal,0.001,True
+termination omnibus,0.001,True
+termination cat vs owner,0.001,True
+termination cat vs equal,0.001,True
+termination owner vs equal,0.437,False
+KW retrievals ~ initiator,0.001,True
+KW retrievals ~ terminator,0.001,True
+KW monthly ~ initiator,0.001,True
+KW monthly ~ terminator,0.001,True
+W retrievals(init) owner vs cat,0.009,False
+W retrievals(init) owner vs equal,0.001,True
+W retrievals(init) cat vs equal,0.995,False
+W retrievals(end) owner vs cat,0.001,True
+W retrievals(end) owner vs equal,0.001,True
+W retrievals(end) equal vs cat,0.001,True
+W monthly(init) owner vs cat,0.001,True
+W monthly(init) owner vs equal,0.001,True
+W monthly(end) cat vs owner,0.001,True
+W monthly(end) cat vs equal,0.001,True
+W monthly(end) owner vs equal,1.0,False
+sex x initiation,0.403,False
+sex x termination,0.374,False
+MW sex retrievals,0.091,False
+MW sex monthly,0.622,False
